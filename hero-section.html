@@ -1,0 +1,3743 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marble Hub — Hero Section</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ========== TOKENS MARBLE HUB ========== */
+    :root {
+      --cream:         #EDE8DF;
+      --cream-light:   #F5F3EE;
+      --forest:        #1C2E1C;
+      --forest-medium: #2A4A2A;
+      --gold:          #C9A84C;
+      --border:        #D6D0C4;
+      --text:          #2C2C2A;
+      --muted:         #6B6B5F;
+      --font-display:  'Playfair Display', Georgia, serif;
+      --font-body:     'Inter', system-ui, sans-serif;
+    }
+
+    /* ========== NAVBAR ========== */
+    .mh-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: var(--forest);
+    }
+
+    .mh-nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      height: 64px;
+      gap: 40px;
+    }
+
+    .mh-nav__logo {
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+
+    .mh-nav__logo-mar {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .mh-nav__logo-hub {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .mh-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .mh-nav__link {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(237, 232, 223, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mh-nav__link:hover { color: var(--cream); }
+
+    .mh-nav__actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .mh-nav__link--entrar {
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    .mh-nav__cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 24px;
+      background: var(--cream-light);
+      color: var(--forest);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .mh-nav__cta:hover { background: var(--cream); }
+
+    /* ========== HERO ========== */
+    .mh-hero {
+      background-color: var(--cream);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 76px 24px 20px;
+      text-align: center;
+      font-family: var(--font-body);
+      overflow: hidden;
+    }
+
+    .mh-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .mh-hero__title em {
+      font-style: italic;
+      color: var(--forest-medium);
+    }
+
+    .mh-hero__subtitle {
+      font-size: 15px;
+      line-height: 1.4;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .mh-hero__subtext {
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    /* ========== HUB — FUNDO GRADIENTE ========== */
+    .mh-hub-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      margin: 12px auto 0;
+      padding: 0;
+      border-radius: 32px;
+      background: radial-gradient(ellipse at center, rgba(42, 74, 42, 0.07) 0%, rgba(237, 232, 223, 0) 70%);
+      flex: 1;
+      min-height: 0;
+    }
+
+    .mh-hub {
+      position: relative;
+      width: 100%;
+      max-width: 1060px;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    /* Centro — Logo card branco */
+    .mh-hub__center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: var(--forest);
+      border-radius: 20px;
+      padding: 24px 40px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(28, 46, 28, 0.3), 0 2px 8px rgba(28, 46, 28, 0.1);
+    }
+
+    .mh-hub__logo {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .mh-hub__logo-mar {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .mh-hub__logo-hub {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .mh-hub__logo-sub {
+      display: block;
+      margin-top: 4px;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(237, 232, 223, 0.6);
+    }
+
+    /* ========== SVG LINHAS ANIMADAS ========== */
+    .mh-hub__lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .mh-hub__line {
+      stroke: var(--forest-medium);
+      stroke-width: 1.5;
+      stroke-dasharray: 8 6;
+      stroke-opacity: 0.25;
+      animation: flowLine 2.5s linear infinite;
+    }
+
+    /* Cada linha com delay diferente pro efeito de "pulso" */
+    .mh-hub__line:nth-child(1)  { animation-delay: 0s; }
+    .mh-hub__line:nth-child(2)  { animation-delay: 0.25s; }
+    .mh-hub__line:nth-child(3)  { animation-delay: 0.5s; }
+    .mh-hub__line:nth-child(4)  { animation-delay: 0.75s; }
+    .mh-hub__line:nth-child(5)  { animation-delay: 1s; }
+    .mh-hub__line:nth-child(6)  { animation-delay: 0.15s; }
+    .mh-hub__line:nth-child(7)  { animation-delay: 0.4s; }
+    .mh-hub__line:nth-child(8)  { animation-delay: 0.65s; }
+    .mh-hub__line:nth-child(9)  { animation-delay: 0.9s; }
+    .mh-hub__line:nth-child(10) { animation-delay: 1.15s; }
+
+    @keyframes flowLine {
+      0%   { stroke-dashoffset: 0; stroke-opacity: 0.2; }
+      50%  { stroke-opacity: 0.45; }
+      100% { stroke-dashoffset: -28; stroke-opacity: 0.2; }
+    }
+
+    /* Bolinhas nos endpoints das linhas */
+    .mh-hub__dot {
+      fill: var(--forest-medium);
+      opacity: 0.3;
+      animation: pulseDot 2.5s ease-in-out infinite;
+    }
+
+    .mh-hub__dot:nth-child(11) { animation-delay: 0s; }
+    .mh-hub__dot:nth-child(12) { animation-delay: 0.25s; }
+    .mh-hub__dot:nth-child(13) { animation-delay: 0.5s; }
+    .mh-hub__dot:nth-child(14) { animation-delay: 0.75s; }
+    .mh-hub__dot:nth-child(15) { animation-delay: 1s; }
+    .mh-hub__dot:nth-child(16) { animation-delay: 0.15s; }
+    .mh-hub__dot:nth-child(17) { animation-delay: 0.4s; }
+    .mh-hub__dot:nth-child(18) { animation-delay: 0.65s; }
+    .mh-hub__dot:nth-child(19) { animation-delay: 0.9s; }
+    .mh-hub__dot:nth-child(20) { animation-delay: 1.15s; }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 0.25; r: 3; }
+      50%      { opacity: 0.6; r: 4.5; }
+    }
+
+    /* ========== MÓDULOS ========== */
+    .mh-hub__module {
+      position: absolute;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 18px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      cursor: default;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+
+    .mh-hub__module:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 8px 24px rgba(28, 46, 28, 0.12);
+      border-color: var(--forest-medium);
+    }
+
+    .mh-hub__module-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(42, 74, 42, 0.08);
+      flex-shrink: 0;
+    }
+
+    .mh-hub__module-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--forest-medium);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Posições — 5 esquerda, 5 direita — bem espalhados */
+    .mh-mod--orcamento       { top: 2%;   left: 4%; }
+    .mh-mod--pedidos         { top: 22%;  left: 0%; }
+    .mh-mod--os              { top: 42%;  left: -1%; }
+    .mh-mod--agenda          { top: 62%;  left: 0%; }
+    .mh-mod--contratos       { top: 82%;  left: 5%; }
+
+    .mh-mod--financeiro      { top: 2%;   right: 4%; }
+    .mh-mod--estoque         { top: 22%;  right: 0%; }
+    .mh-mod--clientes        { top: 42%;  right: -1%; }
+    .mh-mod--crm             { top: 62%;  right: 0%; }
+    .mh-mod--dashboarding    { top: 82%;  right: 5%; }
+
+    /* ========== CTAs ========== */
+    .mh-hero__ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      flex-shrink: 0;
+    }
+
+    .mh-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 28px;
+      background: var(--forest);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .mh-btn-primary:hover { background: var(--forest-medium); }
+
+    .mh-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 28px;
+      background: var(--cream-light);
+      color: var(--forest);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .mh-btn-secondary:hover {
+      background: var(--cream);
+      border-color: var(--forest);
+    }
+
+    .mh-hub__hint {
+      margin-top: 6px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    /* ========== SEÇÃO FEATURES ========== */
+    .mh-features {
+      background: var(--cream);
+      padding: 80px 24px;
+      font-family: var(--font-body);
+    }
+
+    .mh-features__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .mh-features__eyebrow {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .mh-features__title {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 40px;
+    }
+
+    /* Tabs — scrollável horizontalmente */
+    .mh-features__tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 40px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mh-features__tabs::-webkit-scrollbar { display: none; }
+
+    .mh-features__tab {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: white;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .mh-features__tab:hover {
+      border-color: var(--forest-medium);
+      color: var(--forest);
+    }
+
+    .mh-features__tab.active {
+      border-color: var(--forest);
+      color: var(--forest);
+      background: white;
+      box-shadow: 0 4px 16px rgba(28, 46, 28, 0.1);
+    }
+
+    .mh-features__tab-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(42, 74, 42, 0.06);
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .mh-features__tab.active .mh-features__tab-icon {
+      background: rgba(42, 74, 42, 0.12);
+    }
+
+    .mh-features__tab-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--forest-medium);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Conteúdo — vídeo + texto */
+    .mh-features__content {
+      display: none;
+      align-items: center;
+      gap: 48px;
+      animation: fadeFeature 0.4s ease;
+    }
+
+    .mh-features__content.active { display: flex; }
+
+    @keyframes fadeFeature {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Lado esquerdo — vídeo placeholder */
+    .mh-features__video {
+      flex: 1.2;
+      min-width: 0;
+      aspect-ratio: 16 / 10;
+      background: var(--forest);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 12px 40px rgba(28, 46, 28, 0.2);
+    }
+
+    .mh-features__video-play {
+      width: 64px;
+      height: 64px;
+      background: rgba(237, 232, 223, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .mh-features__video-play:hover {
+      background: rgba(237, 232, 223, 0.25);
+      transform: scale(1.1);
+    }
+
+    .mh-features__video-play svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--cream);
+      margin-left: 4px;
+    }
+
+    .mh-features__video-label {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      font-size: 12px;
+      color: rgba(237,232,223,0.5);
+    }
+
+    /* Lado direito — texto */
+    .mh-features__text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mh-features__text h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .mh-features__text h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .mh-features__text p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .mh-features__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--forest);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .mh-features__cta:hover { background: var(--forest-medium); }
+
+    /* Responsivo features */
+    @media (max-width: 768px) {
+      .mh-features { padding: 48px 16px; }
+
+      .mh-features__tabs { gap: 6px; margin-bottom: 24px; }
+
+      .mh-features__tab {
+        padding: 10px 14px;
+        font-size: 12px;
+        border-radius: 10px;
+      }
+
+      .mh-features__tab-icon { width: 24px; height: 24px; }
+      .mh-features__tab-icon svg { width: 12px; height: 12px; }
+
+      .mh-features__content.active {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .mh-features__video {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        border-radius: 14px;
+      }
+
+      .mh-features__video-play { width: 48px; height: 48px; }
+      .mh-features__video-play svg { width: 20px; height: 20px; }
+
+      .mh-features__text { text-align: center; }
+      .mh-features__text h3 { font-size: 22px; }
+      .mh-features__text h4 { font-size: 15px; }
+      .mh-features__text p { font-size: 14px; }
+      .mh-features__cta { width: 100%; justify-content: center; }
+
+      .mh-features__title { font-size: 26px; margin-bottom: 24px; }
+    }
+
+    /* ========== SEÇÃO DORES ========== */
+    .mh-pain {
+      background-color: var(--cream);
+      padding: 80px 24px;
+      font-family: var(--font-body);
+    }
+
+    .mh-pain__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+
+    /* Lado esquerdo — ilustração caótica */
+    .mh-pain__visual {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+    }
+
+    .mh-pain__scene {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 460px;
+      margin: 0 auto;
+      background: var(--cream-light);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Mesa caótica animada */
+    .mh-pain__desk {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .mh-pain__item {
+      position: absolute;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      animation: floatChaos 4s ease-in-out infinite;
+    }
+
+    .mh-pain__item-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Posições caóticas — itens espalhados */
+    .mh-pain__item:nth-child(1)  { top: 6%;  left: 5%;  transform: rotate(-4deg); animation-delay: 0s; }
+    .mh-pain__item:nth-child(2)  { top: 8%;  right: 8%; transform: rotate(3deg);  animation-delay: 0.5s; }
+    .mh-pain__item:nth-child(3)  { top: 22%; left: 15%; transform: rotate(2deg);  animation-delay: 1s; }
+    .mh-pain__item:nth-child(4)  { top: 28%; right: 5%; transform: rotate(-3deg); animation-delay: 0.3s; }
+    .mh-pain__item:nth-child(5)  { top: 42%; left: 3%;  transform: rotate(-2deg); animation-delay: 0.7s; }
+    .mh-pain__item:nth-child(6)  { top: 44%; right: 10%;transform: rotate(4deg);  animation-delay: 1.2s; }
+    .mh-pain__item:nth-child(7)  { top: 58%; left: 10%; transform: rotate(3deg);  animation-delay: 0.4s; }
+    .mh-pain__item:nth-child(8)  { top: 60%; right: 3%; transform: rotate(-5deg); animation-delay: 0.9s; }
+    .mh-pain__item:nth-child(9)  { top: 74%; left: 5%;  transform: rotate(-1deg); animation-delay: 0.6s; }
+    .mh-pain__item:nth-child(10) { top: 78%; right: 8%; transform: rotate(2deg);  animation-delay: 1.1s; }
+
+    @keyframes floatChaos {
+      0%, 100% { translate: 0 0; }
+      25% { translate: 2px -3px; }
+      50% { translate: -2px 2px; }
+      75% { translate: 3px 1px; }
+    }
+
+    /* Badge de alerta vermelho */
+    .mh-pain__alert {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 20px;
+      height: 20px;
+      background: #dc3545;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .mh-pain__alert svg {
+      width: 12px;
+      height: 12px;
+      stroke: white;
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    /* Overlay de fumaça/caos */
+    .mh-pain__scene::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(220, 53, 69, 0.04) 100%);
+      pointer-events: none;
+    }
+
+    /* Lado direito — texto */
+    .mh-pain__text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mh-pain__eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .mh-pain__title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .mh-pain__subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    .mh-pain__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mh-pain__list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .mh-pain__x {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(220, 53, 69, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .mh-pain__x svg {
+      width: 12px;
+      height: 12px;
+      stroke: #dc3545;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+
+    /* Responsivo dores */
+    @media (max-width: 768px) {
+      .mh-pain { padding: 48px 16px; }
+
+      .mh-pain__inner {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .mh-pain__scene {
+        max-width: 340px;
+        aspect-ratio: 1 / 1.1;
+      }
+
+      .mh-pain__item { font-size: 11px; padding: 8px 12px; }
+    }
+
+    /* ========== SEÇÃO SOLUÇÃO ========== */
+    .mh-solution {
+      background-color: var(--cream);
+      padding: 80px 24px;
+      font-family: var(--font-body);
+    }
+
+    .mh-solution__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+
+    /* Texto à esquerda */
+    .mh-solution__text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mh-solution__eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .mh-solution__title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .mh-solution__subtitle {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .mh-solution__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mh-solution__list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .mh-solution__check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(42, 74, 42, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .mh-solution__check svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--forest-medium);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Visual à direita — dashboard organizado */
+    .mh-solution__visual {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mh-solution__scene {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      background: var(--forest);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 16px 48px rgba(28, 46, 28, 0.25);
+    }
+
+    /* Mini dashboard */
+    .mh-dash__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .mh-dash__logo {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .mh-dash__logo-m { color: var(--cream); }
+    .mh-dash__logo-h { color: var(--gold); }
+
+    .mh-dash__status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: rgba(237,232,223,0.5);
+    }
+
+    .mh-dash__status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* Cards internos do dashboard */
+    .mh-dash__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .mh-dash__card {
+      background: rgba(237, 232, 223, 0.08);
+      border: 1px solid rgba(237, 232, 223, 0.1);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .mh-dash__card-label {
+      font-size: 10px;
+      color: rgba(237,232,223,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .mh-dash__card-value {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .mh-dash__card-value--gold { color: var(--gold); }
+
+    .mh-dash__card-change {
+      font-size: 11px;
+      color: #4ade80;
+      margin-top: 4px;
+    }
+
+    /* Mini barras de gráfico */
+    .mh-dash__chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 40px;
+      margin-top: 8px;
+    }
+
+    .mh-dash__bar {
+      flex: 1;
+      background: rgba(201, 168, 76, 0.3);
+      border-radius: 3px 3px 0 0;
+      transition: height 0.3s;
+    }
+
+    .mh-dash__bar--active { background: var(--gold); }
+
+    /* Lista de atividade recente */
+    .mh-dash__activity {
+      border-top: 1px solid rgba(237,232,223,0.1);
+      padding-top: 14px;
+    }
+
+    .mh-dash__activity-title {
+      font-size: 10px;
+      color: rgba(237,232,223,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .mh-dash__activity-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+    }
+
+    .mh-dash__activity-item + .mh-dash__activity-item {
+      border-top: 1px solid rgba(237,232,223,0.05);
+    }
+
+    .mh-dash__activity-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .mh-dash__activity-dot--green { background: #4ade80; }
+    .mh-dash__activity-dot--gold { background: var(--gold); }
+    .mh-dash__activity-dot--blue { background: #60a5fa; }
+
+    .mh-dash__activity-label {
+      font-size: 12px;
+      color: rgba(237,232,223,0.7);
+      flex: 1;
+    }
+
+    .mh-dash__activity-time {
+      font-size: 11px;
+      color: rgba(237,232,223,0.3);
+    }
+
+    /* Responsivo solução */
+    @media (max-width: 768px) {
+      .mh-solution { padding: 48px 16px; }
+
+      .mh-solution__inner {
+        flex-direction: column-reverse;
+        gap: 40px;
+      }
+
+      .mh-solution__scene { max-width: 360px; padding: 20px; }
+
+      .mh-dash__card-value { font-size: 18px; }
+    }
+
+    /* ========== SEÇÃO MERCADO / NOTÍCIAS ========== */
+    .mh-market {
+      background-color: var(--forest);
+      padding: 80px 24px;
+      font-family: var(--font-body);
+      overflow: hidden;
+    }
+
+    .mh-market__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+
+    /* Lado esquerdo — texto */
+    .mh-market__text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mh-market__eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .mh-market__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .mh-market__desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(237, 232, 223, 0.7);
+      margin-bottom: 16px;
+    }
+
+    .mh-market__highlight {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1.6;
+    }
+
+    /* Lado direito — cards de notícias */
+    .mh-market__news {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .mh-news-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s;
+    }
+
+    .mh-news-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .mh-news-card__img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Placeholder para imagens — substitua no WordPress */
+    .mh-news-card__placeholder {
+      width: 100%;
+      padding: 32px 28px;
+      background: white;
+    }
+
+    .mh-news-card__source {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mh-news-card__source-tag {
+      background: #1a1a5e;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .mh-news-card__headline {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .mh-news-card__sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .mh-news-card--veja .mh-news-card__placeholder {
+      text-align: center;
+    }
+
+    .mh-news-card--veja .mh-news-card__category {
+      font-size: 13px;
+      font-weight: 600;
+      color: #d32f2f;
+      margin-bottom: 12px;
+    }
+
+    .mh-news-card--veja .mh-news-card__headline {
+      font-size: 18px;
+      max-width: 420px;
+      margin: 0 auto 8px;
+    }
+
+    .mh-news-card--veja .mh-news-card__meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* Stat badges flutuantes */
+    .mh-market__stats {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .mh-stat {
+      background: rgba(237, 232, 223, 0.08);
+      border: 1px solid rgba(237, 232, 223, 0.15);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .mh-stat__number {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+
+    .mh-stat__label {
+      font-size: 12px;
+      color: rgba(237, 232, 223, 0.6);
+      margin-top: 4px;
+    }
+
+    /* Responsivo mercado */
+    @media (max-width: 768px) {
+      .mh-market { padding: 48px 16px; }
+
+      .mh-market__inner {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .mh-market__stats {
+        justify-content: center;
+      }
+
+      .mh-news-card__headline { font-size: 17px; }
+      .mh-news-card--veja .mh-news-card__headline { font-size: 16px; }
+    }
+
+    /* ========== COMO FUNCIONA ========== */
+    .mh-steps {
+      background-color: var(--cream);
+      padding: 80px 24px;
+      font-family: var(--font-body);
+      text-align: center;
+    }
+
+    .mh-steps__eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .mh-steps__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 56px;
+    }
+
+    .mh-steps__track {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Linha de conexão horizontal */
+    .mh-steps__line {
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .mh-steps__line-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--forest-medium);
+      border-radius: 2px;
+      transition: width 0.6s ease;
+    }
+
+    .mh-steps__grid {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Card de passo */
+    .mh-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 22%;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .mh-step:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Número circular */
+    .mh-step__number {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border: 3px solid var(--border);
+      margin-bottom: 20px;
+      transition: border-color 0.4s, background 0.4s, transform 0.4s;
+      position: relative;
+    }
+
+    .mh-step__number-inner {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--muted);
+      transition: color 0.4s;
+    }
+
+    .mh-step__number-icon {
+      display: none;
+      width: 32px;
+      height: 32px;
+    }
+
+    .mh-step__number-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: white;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Ativo */
+    .mh-step.active .mh-step__number {
+      background: var(--forest);
+      border-color: var(--forest);
+      transform: scale(1.1);
+    }
+
+    .mh-step.active .mh-step__number-inner { display: none; }
+    .mh-step.active .mh-step__number-icon { display: flex; }
+
+    /* Completo */
+    .mh-step.done .mh-step__number {
+      background: var(--forest-medium);
+      border-color: var(--forest-medium);
+    }
+
+    .mh-step.done .mh-step__number-inner { display: none; }
+    .mh-step.done .mh-step__number-icon { display: flex; }
+
+    .mh-step__label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      transition: color 0.3s;
+    }
+
+    .mh-step.active .mh-step__label { color: var(--forest); }
+
+    .mh-step__desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 200px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+
+    .mh-step.active .mh-step__desc,
+    .mh-step.done .mh-step__desc {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Pulso no step ativo */
+    .mh-step.active .mh-step__number::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 50%;
+      border: 2px solid var(--forest-medium);
+      opacity: 0;
+      animation: stepPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes stepPulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.3); }
+    }
+
+    /* Responsivo steps — mobile scroll reveal */
+    @media (max-width: 768px) {
+      .mh-steps { padding: 48px 16px; }
+
+      .mh-steps__grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+
+      .mh-step {
+        width: 100%;
+        max-width: 320px;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 20px;
+        padding: 24px 0;
+        position: relative;
+        /* Scroll reveal: começa invisível */
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .mh-step.mh-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Linha vertical entre os steps no mobile */
+      .mh-step::before {
+        content: '';
+        position: absolute;
+        left: 39px;
+        top: 104px;
+        bottom: -24px;
+        width: 3px;
+        background: var(--border);
+        z-index: 0;
+        transition: background 0.4s;
+      }
+
+      .mh-step:last-child::before { display: none; }
+
+      .mh-step.done::before,
+      .mh-step.active::before {
+        background: var(--forest-medium);
+      }
+
+      .mh-step__number {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+      }
+
+      .mh-step__number-inner { font-size: 22px; }
+
+      .mh-step__number-icon svg { width: 26px; height: 26px; }
+
+      .mh-step__content { flex: 1; padding-top: 8px; }
+
+      .mh-step__desc {
+        opacity: 1;
+        transform: none;
+        max-width: none;
+      }
+
+      .mh-steps__line { display: none; }
+    }
+
+    /* ========== SEÇÃO PLANOS ========== */
+    .mh-pricing {
+      background-color: var(--cream);
+      padding: 80px 24px;
+      text-align: center;
+      font-family: var(--font-body);
+    }
+
+    .mh-pricing__eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .mh-pricing__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 12px;
+    }
+
+    .mh-pricing__title em {
+      font-style: italic;
+      color: var(--forest-medium);
+    }
+
+    .mh-pricing__subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    .mh-pricing__grid {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    /* Card de plano */
+    .mh-plan {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px 32px;
+      width: 320px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+
+    .mh-plan:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(28, 46, 28, 0.1);
+    }
+
+    /* Plano destaque (Pro) */
+    .mh-plan--featured {
+      border: 2px solid var(--forest);
+      box-shadow: 0 8px 24px rgba(28, 46, 28, 0.12);
+    }
+
+    .mh-plan__badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--forest);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 16px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .mh-plan__name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .mh-plan__price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .mh-plan__price-value {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--forest);
+    }
+
+    .mh-plan__price-period {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .mh-plan__users {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Lista de features */
+    .mh-plan__features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mh-plan__feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .mh-plan__feature--no {
+      color: var(--muted);
+      opacity: 0.5;
+    }
+
+    .mh-plan__feature--soon {
+      color: var(--gold);
+    }
+
+    .mh-plan__check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mh-plan__check--yes {
+      background: rgba(42, 74, 42, 0.1);
+    }
+
+    .mh-plan__check--yes svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--forest-medium);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .mh-plan__check--no {
+      background: rgba(107, 107, 95, 0.08);
+    }
+
+    .mh-plan__check--no svg {
+      width: 10px;
+      height: 10px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .mh-plan__check--soon {
+      background: rgba(201, 168, 76, 0.12);
+    }
+
+    .mh-plan__check--soon svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Botão do plano */
+    .mh-plan__cta {
+      display: block;
+      text-align: center;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+
+    .mh-plan__cta--outline {
+      background: var(--cream-light);
+      color: var(--forest);
+      border: 1px solid var(--border);
+    }
+
+    .mh-plan__cta--outline:hover {
+      background: var(--cream);
+      border-color: var(--forest);
+    }
+
+    .mh-plan__cta--solid {
+      background: var(--forest);
+      color: var(--cream);
+      border: none;
+    }
+
+    .mh-plan__cta--solid:hover {
+      background: var(--forest-medium);
+    }
+
+    /* ========== DEPOIMENTOS ========== */
+    .mh-testimonials {
+      background: var(--forest);
+      padding: 80px 24px;
+      font-family: var(--font-body);
+      overflow: hidden;
+    }
+
+    .mh-testimonials__eyebrow {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .mh-testimonials__title {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+
+    .mh-testimonials__grid {
+      display: flex;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Card WhatsApp */
+    .mh-wpp {
+      width: 330px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s;
+    }
+
+    .mh-wpp:hover { transform: translateY(-4px); }
+
+    /* Header do chat */
+    .mh-wpp__header {
+      background: #075e54;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mh-wpp__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #128c7e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: white;
+      font-weight: 700;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .mh-wpp__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mh-wpp__contact {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mh-wpp__name {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .mh-wpp__status {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .mh-wpp__icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .mh-wpp__icons svg {
+      width: 18px;
+      height: 18px;
+      stroke: rgba(255,255,255,0.7);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Corpo do chat */
+    .mh-wpp__body {
+      background: #ece5dd;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4cfc6' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 220px;
+    }
+
+    /* Balão de mensagem */
+    .mh-wpp__msg {
+      max-width: 88%;
+      padding: 10px 14px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #303030;
+      position: relative;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+
+    .mh-wpp__msg--in {
+      background: white;
+      border-top-left-radius: 2px;
+      align-self: flex-start;
+    }
+
+    .mh-wpp__msg--out {
+      background: #dcf8c6;
+      border-top-right-radius: 2px;
+      align-self: flex-end;
+    }
+
+    .mh-wpp__msg-time {
+      position: absolute;
+      bottom: 4px;
+      right: 10px;
+      font-size: 11px;
+      color: rgba(0,0,0,0.35);
+    }
+
+    .mh-wpp__msg-check {
+      color: #53bdeb;
+      margin-left: 2px;
+    }
+
+    /* Emojis maiores */
+    .mh-wpp__msg--emoji {
+      font-size: 28px;
+      padding: 8px 14px 20px;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    /* Footer do chat */
+    .mh-wpp__footer {
+      background: #f0f0f0;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mh-wpp__input {
+      flex: 1;
+      background: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: #999;
+    }
+
+    .mh-wpp__send {
+      width: 36px;
+      height: 36px;
+      background: #128c7e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mh-wpp__send svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
+    /* Responsivo depoimentos */
+    @media (max-width: 768px) {
+      .mh-testimonials { padding: 48px 16px; }
+
+      .mh-testimonials__grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mh-wpp { width: 100%; max-width: 360px; }
+    }
+
+    /* ========== CTA FINAL ========== */
+    .mh-cta-final {
+      background: var(--cream);
+      padding: 48px 24px;
+      text-align: center;
+      font-family: var(--font-body);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mh-cta-final__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mh-cta-final__title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .mh-cta-final__subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .mh-cta-final__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .mh-cta-final__btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 16px 36px;
+      background: var(--forest);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .mh-cta-final__btn-primary:hover {
+      background: var(--forest-medium);
+      transform: translateY(-2px);
+    }
+
+    .mh-cta-final__btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 16px 36px;
+      background: var(--cream-light);
+      color: var(--forest);
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .mh-cta-final__btn-secondary:hover {
+      background: var(--cream);
+      border-color: var(--forest);
+      transform: translateY(-2px);
+    }
+
+    /* Decoração de fundo */
+    .mh-cta-final__deco {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.06;
+      background: var(--forest);
+    }
+
+    .mh-cta-final__deco--1 {
+      width: 300px; height: 300px;
+      top: -100px; left: -80px;
+    }
+
+    .mh-cta-final__deco--2 {
+      width: 200px; height: 200px;
+      bottom: -60px; right: -40px;
+    }
+
+    @media (max-width: 768px) {
+      .mh-cta-final { padding: 56px 16px; }
+      .mh-cta-final__btn-primary,
+      .mh-cta-final__btn-secondary { width: 100%; justify-content: center; }
+    }
+
+    /* ========== FAQ ========== */
+    .mh-faq {
+      background-color: var(--cream);
+      padding: 80px 24px;
+      font-family: var(--font-body);
+    }
+
+    .mh-faq__inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .mh-faq__eyebrow {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .mh-faq__title {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 48px;
+    }
+
+    /* Grupo de categoria */
+    .mh-faq__group {
+      margin-bottom: 36px;
+    }
+
+    .mh-faq__group-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+    }
+
+    /* Accordion item */
+    .mh-faq__item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      margin-bottom: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .mh-faq__question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+      transition: color 0.2s;
+    }
+
+    .mh-faq__question:hover {
+      color: var(--forest);
+    }
+
+    .mh-faq__icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .mh-faq__icon line {
+      stroke: var(--forest-medium);
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .mh-faq__item.active .mh-faq__icon {
+      transform: rotate(45deg);
+    }
+
+    .mh-faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .mh-faq__item.active .mh-faq__answer {
+      max-height: 300px;
+    }
+
+    .mh-faq__answer-text {
+      padding: 0 20px 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ========== RESPONSIVO ========== */
+    /* ========== HAMBURGER MENU ========== */
+    .mh-nav__hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .mh-nav__hamburger svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--cream);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .mh-nav__mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--forest);
+      padding: 16px 24px 24px;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 49;
+      border-top: 1px solid rgba(237,232,223,0.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .mh-nav__mobile-menu.open { display: flex; }
+
+    .mh-nav__mobile-menu a {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(237, 232, 223, 0.8);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(237,232,223,0.08);
+    }
+
+    .mh-nav__mobile-menu a:last-child { border-bottom: none; }
+
+    .mh-nav__mobile-cta {
+      display: block;
+      text-align: center;
+      padding: 12px 24px;
+      background: var(--cream-light);
+      color: var(--forest);
+      font-weight: 600;
+      border-radius: 10px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      /* Navbar */
+      .mh-nav__links { display: none; }
+      .mh-nav__link--entrar { display: none; }
+      .mh-nav__cta { display: none; }
+      .mh-nav__hamburger { display: block; }
+      .mh-nav__inner { padding: 0 16px; }
+
+      /* Hero */
+      .mh-hero {
+        min-height: auto;
+        height: auto;
+        padding: 80px 16px 32px;
+      }
+
+      .mh-hero__title { font-size: 26px; margin-bottom: 8px; }
+      .mh-hero__title br { display: none; }
+      .mh-hero__subtitle { font-size: 14px; }
+      .mh-hero__subtext { font-size: 13px; }
+
+      .mh-hub-wrapper { padding: 16px 0; }
+
+      .mh-hub {
+        height: auto;
+        aspect-ratio: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 20px 0;
+      }
+
+      .mh-hub__center {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-bottom: 16px;
+        padding: 18px 28px;
+      }
+
+      .mh-hub__logo-mar, .mh-hub__logo-hub { font-size: 20px; }
+      .mh-hub__lines { display: none; }
+
+      .mh-hub__module {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+      }
+
+      .mh-hero__ctas { gap: 10px; }
+      .mh-btn-primary, .mh-btn-secondary {
+        padding: 12px 20px;
+        font-size: 13px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .mh-hub__hint { font-size: 11px; }
+
+      /* Dores */
+      .mh-pain { padding: 48px 16px; }
+      .mh-pain__inner { flex-direction: column; gap: 32px; }
+      .mh-pain__title { font-size: 24px; }
+      .mh-pain__scene { max-width: 100%; aspect-ratio: 1 / 1.15; }
+      .mh-pain__item { font-size: 11px; padding: 8px 10px; gap: 6px; }
+      .mh-pain__item-icon { font-size: 14px; }
+      .mh-pain__alert { width: 16px; height: 16px; top: -6px; right: -6px; }
+      .mh-pain__alert svg { width: 10px; height: 10px; }
+      .mh-pain__list-item { font-size: 14px; }
+
+      /* Solução */
+      .mh-solution { padding: 48px 16px; }
+      .mh-solution__inner { flex-direction: column-reverse; gap: 32px; }
+      .mh-solution__title { font-size: 24px; }
+      .mh-solution__scene { max-width: 100%; padding: 18px; }
+      .mh-dash__card-value { font-size: 18px; }
+      .mh-dash__grid { gap: 8px; }
+      .mh-dash__card { padding: 10px; }
+      .mh-solution__list-item { font-size: 14px; }
+
+      /* Mercado */
+      .mh-market { padding: 48px 16px; }
+      .mh-market__inner { flex-direction: column; gap: 32px; }
+      .mh-market__title { font-size: 26px; }
+      .mh-market__desc { font-size: 15px; }
+      .mh-market__highlight { font-size: 16px; }
+      .mh-market__stats { flex-wrap: wrap; justify-content: center; }
+      .mh-stat { padding: 12px 16px; }
+      .mh-stat__number { font-size: 22px; }
+      .mh-news-card__headline { font-size: 17px; }
+      .mh-news-card--veja .mh-news-card__headline { font-size: 16px; }
+
+      /* Planos */
+      .mh-pricing { padding: 48px 16px; }
+      .mh-pricing__title { font-size: 26px; }
+      .mh-pricing__grid { flex-direction: column; align-items: center; }
+      .mh-plan { width: 100%; max-width: 400px; padding: 28px 24px 24px; }
+      .mh-plan__name { font-size: 20px; }
+      .mh-plan__price-value { font-size: 30px; }
+      .mh-plan__feature { font-size: 13px; }
+
+      /* Depoimentos */
+      .mh-testimonials { padding: 48px 16px; }
+      .mh-testimonials__title { font-size: 24px; }
+      .mh-testimonials__grid { flex-direction: column; align-items: center; }
+      .mh-wpp { width: 100%; max-width: 360px; }
+      .mh-wpp__msg { font-size: 13px; }
+
+      /* CTA Final */
+      .mh-cta-final { padding: 40px 16px; }
+      .mh-cta-final__title { font-size: 28px; }
+      .mh-cta-final__subtitle { font-size: 16px; margin-bottom: 24px; }
+      .mh-cta-final__btn-primary,
+      .mh-cta-final__btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 15px;
+      }
+
+      /* FAQ */
+      .mh-faq { padding: 48px 16px; }
+      .mh-faq__title { font-size: 26px; margin-bottom: 32px; }
+      .mh-faq__group-title { font-size: 18px; }
+      .mh-faq__question { font-size: 14px; padding: 16px; }
+      .mh-faq__answer-text { font-size: 13px; padding: 0 16px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="mh-nav">
+  <div class="mh-nav__inner">
+    <a href="/" class="mh-nav__logo">
+      <span class="mh-nav__logo-mar">Marble</span><span class="mh-nav__logo-hub">Hub</span>
+    </a>
+    <div class="mh-nav__links">
+      <a href="#demo" class="mh-nav__link">Ver demonstração</a>
+      <a href="#como-funciona" class="mh-nav__link" onclick="scrollToSection('como-funciona')">Como funciona</a>
+      <a href="#planos" class="mh-nav__link" onclick="scrollToSection('planos')">Planos</a>
+    </div>
+    <div class="mh-nav__actions">
+      <a href="#" class="mh-nav__link mh-nav__link--entrar">Entrar</a>
+      <a href="#planos" class="mh-nav__cta">Testar agora</a>
+      <button class="mh-nav__hamburger" id="menuToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Menu mobile -->
+<div class="mh-nav__mobile-menu" id="mobileMenu">
+  <a href="#demo">Ver demonstração</a>
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#planos">Planos</a>
+  <a href="#">Entrar</a>
+  <a href="#planos" class="mh-nav__mobile-cta">Testar agora</a>
+</div>
+
+<!-- ==================== HERO ==================== -->
+<section class="mh-hero">
+
+  <h1 class="mh-hero__title">
+    O sistema <em>inteligente</em> de gestão que o<br>mercado de marmoraria merece
+  </h1>
+
+  <p class="mh-hero__subtitle">Do orçamento a entrega em minutos.</p>
+  <p class="mh-hero__subtext">Menos caos na sua marmoraria. Mais lucro no fim do mês.</p>
+
+  <!-- Hub com gradiente de fundo -->
+  <div class="mh-hub-wrapper">
+    <div class="mh-hub">
+
+      <!-- SVG — Linhas animadas + bolinhas -->
+      <svg class="mh-hub__lines" viewBox="0 0 1060 460" preserveAspectRatio="xMidYMid meet">
+        <!-- Linhas esquerda -->
+        <line class="mh-hub__line" x1="530" y1="230" x2="120" y2="30"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="80"  y2="120"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="70"  y2="215"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="80"  y2="310"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="130" y2="400"/>
+        <!-- Linhas direita -->
+        <line class="mh-hub__line" x1="530" y1="230" x2="940" y2="30"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="980" y2="120"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="990" y2="215"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="980" y2="310"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="930" y2="400"/>
+        <!-- Bolinhas nos endpoints -->
+        <circle class="mh-hub__dot" cx="120" cy="30"  r="3.5"/>
+        <circle class="mh-hub__dot" cx="80"  cy="120" r="3.5"/>
+        <circle class="mh-hub__dot" cx="70"  cy="215" r="3.5"/>
+        <circle class="mh-hub__dot" cx="80"  cy="310" r="3.5"/>
+        <circle class="mh-hub__dot" cx="130" cy="400" r="3.5"/>
+        <circle class="mh-hub__dot" cx="940" cy="30"  r="3.5"/>
+        <circle class="mh-hub__dot" cx="980" cy="120" r="3.5"/>
+        <circle class="mh-hub__dot" cx="990" cy="215" r="3.5"/>
+        <circle class="mh-hub__dot" cx="980" cy="310" r="3.5"/>
+        <circle class="mh-hub__dot" cx="930" cy="400" r="3.5"/>
+      </svg>
+
+      <!-- Centro — Logo card -->
+      <div class="mh-hub__center">
+        <div class="mh-hub__logo">
+          <span class="mh-hub__logo-mar">Marble</span><span class="mh-hub__logo-hub">Hub</span>
+        </div>
+        <span class="mh-hub__logo-sub">Plataforma Completa</span>
+      </div>
+
+      <!-- Esquerda -->
+      <div class="mh-hub__module mh-mod--orcamento">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span>
+        Orçamento Inteligente
+      </div>
+
+      <div class="mh-hub__module mh-mod--pedidos">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></span>
+        Gestão de Pedidos
+      </div>
+
+      <div class="mh-hub__module mh-mod--os">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+        Ordem de Serviço
+      </div>
+
+      <div class="mh-hub__module mh-mod--agenda">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+        Agenda
+      </div>
+
+      <div class="mh-hub__module mh-mod--contratos">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+        Contratos
+      </div>
+
+      <!-- Direita -->
+      <div class="mh-hub__module mh-mod--financeiro">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        Financeiro
+      </div>
+
+      <div class="mh-hub__module mh-mod--estoque">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        Estoque de Chapas
+      </div>
+
+      <div class="mh-hub__module mh-mod--clientes">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        Clientes
+      </div>
+
+      <div class="mh-hub__module mh-mod--crm">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+        CRM
+      </div>
+
+      <div class="mh-hub__module mh-mod--dashboarding">
+        <span class="mh-hub__module-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
+        Dashboarding
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTAs abaixo do hub -->
+  <div class="mh-hero__ctas">
+    <a href="#" class="mh-btn-primary">Comece grátis por 7 dias</a>
+    <a href="#" class="mh-btn-secondary">Ver demonstração</a>
+  </div>
+
+  <p class="mh-hub__hint">Clique em qualquer módulo para ver como funciona</p>
+
+</section>
+
+<!-- ==================== FEATURES ==================== -->
+<section id="modulos" class="mh-features">
+  <div class="mh-features__inner">
+
+    <p class="mh-features__eyebrow">Módulos</p>
+    <h2 class="mh-features__title">Tudo que sua marmoraria precisa</h2>
+
+    <!-- Tabs -->
+    <div class="mh-features__tabs" id="featureTabs">
+
+      <button class="mh-features__tab active" data-feature="orcamento">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span>
+        Orçamento
+      </button>
+
+      <button class="mh-features__tab" data-feature="pedidos">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></span>
+        Pedidos
+      </button>
+
+      <button class="mh-features__tab" data-feature="agenda">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+        Agenda
+      </button>
+
+      <button class="mh-features__tab" data-feature="os">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+        Ordem de Serviço
+      </button>
+
+      <button class="mh-features__tab" data-feature="financeiro">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        Financeiro
+      </button>
+
+      <button class="mh-features__tab" data-feature="estoque">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        Estoque
+      </button>
+
+      <button class="mh-features__tab" data-feature="clientes">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        Clientes
+      </button>
+
+      <button class="mh-features__tab" data-feature="crm">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+        CRM
+      </button>
+
+      <button class="mh-features__tab" data-feature="contratos">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+        Contratos
+      </button>
+
+      <button class="mh-features__tab" data-feature="dashboarding">
+        <span class="mh-features__tab-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
+        Dashboarding
+      </button>
+
+    </div>
+
+    <!-- Conteúdos -->
+
+    <div class="mh-features__content active" data-feature="orcamento">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Orçamento Inteligente</h3>
+        <h4>Pare de perder dinheiro no chute</h4>
+        <p>Calcule o preço real do m² com material, mão de obra e margem em segundos. Envie pelo WhatsApp e feche na hora.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="pedidos">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Gestão de Pedidos</h3>
+        <h4>Saiba onde está cada pedido sem precisar perguntar</h4>
+        <p>Do orçamento aprovado até a entrega, tudo rastreado em tempo real. Chega de cliente ligando e você sem resposta.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="agenda">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Agenda</h3>
+        <h4>Fim do caos das instalações por WhatsApp</h4>
+        <p>Equipe certa, endereço certo, horário certo — organizado automaticamente. Sem ligação, sem funcionário no lugar errado.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="os">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Ordem de Serviço</h3>
+        <h4>A medida sai do orçamento e vai direto para a produção</h4>
+        <p>Sem redigitar, sem telefone, sem erro humano. Sua equipe recebe exatamente o que precisa executar — na hora certa.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="financeiro">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Financeiro</h3>
+        <h4>Saiba se está ganhando ou perdendo antes do mês acabar</h4>
+        <p>Fluxo de caixa, recebíveis e margem de cada projeto em tempo real. Chega de descobrir o prejuízo quando já é tarde demais.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="estoque">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Estoque de Chapas</h3>
+        <h4>Nunca mais perca uma chapa ou compre o que já tem</h4>
+        <p>Controle exato de qual chapa foi para qual pedido. Estoque atualizado a cada orçamento aprovado, sem planilha, sem chute.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="clientes">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Clientes</h3>
+        <h4>Toda a história do cliente em um só lugar</h4>
+        <p>Projetos anteriores, preferências, pagamentos e contatos — tudo salvo e acessível na hora. Venda mais para quem já comprou.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="crm">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>CRM</h3>
+        <h4>Pare de perder venda por falta de follow-up</h4>
+        <p>Acompanhe cada orçamento enviado, saiba quem não respondeu e aborde na hora certa. Sua carteira de clientes trabalhando para você.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="contratos">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Contratos</h3>
+        <h4>Proteja cada projeto sem burocracia</h4>
+        <p>Contrato gerado automaticamente a partir do orçamento e assinado digitalmente pelo cliente — em segundos, pelo celular, sem impressão.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+    <div class="mh-features__content" data-feature="dashboarding">
+      <div class="mh-features__video">
+        <div class="mh-features__video-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="mh-features__video-label">Vídeo em breve</span>
+      </div>
+      <div class="mh-features__text">
+        <h3>Dashboarding</h3>
+        <h4>Enxergue o negócio inteiro em uma tela</h4>
+        <p>Faturamento do mês, pedidos em aberto, instalações da semana e margem por projeto. Tome decisão com dado, não com feeling.</p>
+        <a href="#planos" class="mh-features__cta">Testar agora</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Features Tab Script -->
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.mh-features__tab');
+  var contents = document.querySelectorAll('.mh-features__content');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var feature = this.getAttribute('data-feature');
+
+      // Ativa tab
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+
+      // Mostra conteúdo
+      contents.forEach(function(c) { c.classList.remove('active'); });
+      document.querySelector('.mh-features__content[data-feature="' + feature + '"]').classList.add('active');
+
+      // Scroll tab into view no mobile
+      this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+  });
+})();
+</script>
+
+<!-- ==================== DORES ==================== -->
+<section class="mh-pain">
+  <div class="mh-pain__inner">
+
+    <!-- Visual — mesa caótica -->
+    <div class="mh-pain__visual">
+      <div class="mh-pain__scene">
+        <div class="mh-pain__desk">
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">📝</span> Orçamento no papel
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">💸</span> Nunca sobra dinheiro
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">🔀</span> Pedidos misturados
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">⏰</span> Sempre atrasa entrega
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">🏦</span> Conta PF + PJ misturada
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">📄</span> Sem contrato
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">💰</span> Comissão errada
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">🚶</span> Equipe sem controle
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">✂️</span> Cortes errados
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+          <div class="mh-pain__item">
+            <span class="mh-pain__item-icon">🧠</span> Tudo na sua cabeça
+            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Texto -->
+    <div class="mh-pain__text">
+      <p class="mh-pain__eyebrow">Realidade</p>
+      <h2 class="mh-pain__title">Você vende pedra, mas não precisa viver na idade das pedras</h2>
+      <p class="mh-pain__subtitle">Você gerencia a sua marmoraria assim?</p>
+
+      <ul class="mh-pain__list">
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Orçamento feito no papel
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Nunca sobra dinheiro no final do mês mesmo vendendo muito
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Nunca sabe qual pedido parar a produção
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Sempre atrasa o dia da entrega
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Mistura conta física com conta da marmoraria
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Não usa contrato
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Paga comissão a mais para o vendedor
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Funcionários trabalham quando querem
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Produção sempre erra os cortes das medidas
+        </li>
+        <li class="mh-pain__list-item">
+          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Tudo da empresa está na sua cabeça e ninguém sabe de nada
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== SOLUÇÃO ==================== -->
+<section class="mh-solution">
+  <div class="mh-solution__inner">
+
+    <!-- Texto -->
+    <div class="mh-solution__text">
+      <p class="mh-solution__eyebrow">A diferença</p>
+      <h2 class="mh-solution__title">Como donos de marmorarias que faturam alto gerenciam suas marmorarias</h2>
+      <p class="mh-solution__subtitle">Não é sorte. Não é porque têm mais clientes. É porque operam de um jeito completamente diferente.</p>
+
+      <ul class="mh-solution__list">
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Orçamento feito pelo celular
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Sabem exatamente o que vai entrar no mês
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          A produção tem ordem de prioridade clara
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          A agenda de instalações é automática
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Fluxo de caixa separado e atualizado em tempo real
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Todo projeto tem contrato assinado digitalmente
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Comissão calculada automaticamente
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Equipe com rotina definida no sistema
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          A medida sai do orçamento e vai direto para a produção
+        </li>
+        <li class="mh-solution__list-item">
+          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          O negócio funciona sem o dono presente
+        </li>
+      </ul>
+    </div>
+
+    <!-- Visual — mini dashboard -->
+    <div class="mh-solution__visual">
+      <div class="mh-solution__scene">
+
+        <div class="mh-dash__header">
+          <span class="mh-dash__logo"><span class="mh-dash__logo-m">Marble</span><span class="mh-dash__logo-h">Hub</span></span>
+          <span class="mh-dash__status"><span class="mh-dash__status-dot"></span> Sistema ativo</span>
+        </div>
+
+        <div class="mh-dash__grid">
+          <div class="mh-dash__card">
+            <div class="mh-dash__card-label">Faturamento mês</div>
+            <div class="mh-dash__card-value mh-dash__card-value--gold">R$ 342k</div>
+            <div class="mh-dash__card-change">↑ 18% vs mês anterior</div>
+          </div>
+          <div class="mh-dash__card">
+            <div class="mh-dash__card-label">Orçamentos abertos</div>
+            <div class="mh-dash__card-value">23</div>
+            <div class="mh-dash__card-change">↑ 5 novos hoje</div>
+          </div>
+          <div class="mh-dash__card">
+            <div class="mh-dash__card-label">Pedidos em produção</div>
+            <div class="mh-dash__card-value">12</div>
+            <div class="mh-dash__chart">
+              <div class="mh-dash__bar" style="height:40%"></div>
+              <div class="mh-dash__bar" style="height:60%"></div>
+              <div class="mh-dash__bar" style="height:45%"></div>
+              <div class="mh-dash__bar" style="height:80%"></div>
+              <div class="mh-dash__bar mh-dash__bar--active" style="height:100%"></div>
+              <div class="mh-dash__bar" style="height:70%"></div>
+              <div class="mh-dash__bar" style="height:55%"></div>
+            </div>
+          </div>
+          <div class="mh-dash__card">
+            <div class="mh-dash__card-label">Instalações semana</div>
+            <div class="mh-dash__card-value">8</div>
+            <div class="mh-dash__card-change">3 amanhã</div>
+          </div>
+        </div>
+
+        <div class="mh-dash__activity">
+          <div class="mh-dash__activity-title">Atividade recente</div>
+          <div class="mh-dash__activity-item">
+            <span class="mh-dash__activity-dot mh-dash__activity-dot--green"></span>
+            <span class="mh-dash__activity-label">Contrato #847 assinado digitalmente</span>
+            <span class="mh-dash__activity-time">2 min</span>
+          </div>
+          <div class="mh-dash__activity-item">
+            <span class="mh-dash__activity-dot mh-dash__activity-dot--gold"></span>
+            <span class="mh-dash__activity-label">Orçamento enviado via WhatsApp</span>
+            <span class="mh-dash__activity-time">15 min</span>
+          </div>
+          <div class="mh-dash__activity-item">
+            <span class="mh-dash__activity-dot mh-dash__activity-dot--blue"></span>
+            <span class="mh-dash__activity-label">Comissão calculada — R$ 1.240</span>
+            <span class="mh-dash__activity-time">1h</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== MERCADO / NOTÍCIAS ==================== -->
+<section class="mh-market">
+  <div class="mh-market__inner">
+
+    <!-- Texto -->
+    <div class="mh-market__text">
+      <p class="mh-market__eyebrow">Por que isso importa</p>
+      <h2 class="mh-market__title">Do caos ao lucro em minutos</h2>
+      <p class="mh-market__desc">
+        O mercado de marmoraria é um dos mais lucrativos do Brasil, com custo baixo e margem de lucratividade alta — é quase impossível falir.
+      </p>
+      <p class="mh-market__highlight">
+        Mas 70% das empresas fecham por conta da má gestão e organização das marmorarias.
+      </p>
+
+      <!-- Stats -->
+      <div class="mh-market__stats">
+        <div class="mh-stat">
+          <span class="mh-stat__number">R$ 7,2 bi</span>
+          <span class="mh-stat__label">Faturamento do setor em 2025</span>
+        </div>
+        <div class="mh-stat">
+          <span class="mh-stat__number">70%</span>
+          <span class="mh-stat__label">Fecham por má gestão</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notícias -->
+    <div class="mh-market__news">
+
+      <!-- Notícia 1 — Empresas fecham -->
+      <div class="mh-news-card">
+        <div class="mh-news-card__placeholder">
+          <div class="mh-news-card__source">
+            <span class="mh-news-card__source-tag">15 Set</span>
+            Blog Escola de negócios e gestão
+          </div>
+          <h3 class="mh-news-card__headline">Quase 50% das empresas fecham em até três anos por má gestão</h3>
+          <p class="mh-news-card__sub">Brasil ocupa a 138ª posição em abertura de empresas; ranking do Banco Mundial considera indicadores como crédito e pagamento de impostos.</p>
+        </div>
+      </div>
+
+      <!-- Notícia 2 — Veja -->
+      <div class="mh-news-card mh-news-card--veja">
+        <div class="mh-news-card__placeholder">
+          <p class="mh-news-card__category">Brasil</p>
+          <h3 class="mh-news-card__headline">Brasil se destaca como potência mundial no mercado de pedras naturais</h3>
+          <p class="mh-news-card__sub">Setor deve faturar cerca de R$ 7,2 bi em 2025</p>
+          <p class="mh-news-card__meta">Por Pedro Pupulim · 13 jan 2025 · <strong>veja</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== COMO FUNCIONA ==================== -->
+<section id="como-funciona" class="mh-steps">
+
+  <p class="mh-steps__eyebrow">Como funciona</p>
+  <h2 class="mh-steps__title">Como funciona o MarbleHub</h2>
+
+  <div class="mh-steps__track">
+    <!-- Linha de progresso -->
+    <div class="mh-steps__line">
+      <div class="mh-steps__line-fill" id="stepLineFill"></div>
+    </div>
+
+    <div class="mh-steps__grid" id="stepsGrid">
+
+      <!-- Passo 1 -->
+      <div class="mh-step" data-step="1">
+        <div class="mh-step__number">
+          <span class="mh-step__number-inner">1</span>
+          <span class="mh-step__number-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          </span>
+        </div>
+        <div class="mh-step__content">
+          <span class="mh-step__label">Crie sua conta grátis</span>
+          <p class="mh-step__desc">Em menos de 1 minuto. Sem cartão de crédito, sem compromisso.</p>
+        </div>
+      </div>
+
+      <!-- Passo 2 -->
+      <div class="mh-step" data-step="2">
+        <div class="mh-step__number">
+          <span class="mh-step__number-inner">2</span>
+          <span class="mh-step__number-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </span>
+        </div>
+        <div class="mh-step__content">
+          <span class="mh-step__label">Cadastre seus dados</span>
+          <p class="mh-step__desc">Materiais, serviços e vendedores. Importe do Excel se preferir.</p>
+        </div>
+      </div>
+
+      <!-- Passo 3 -->
+      <div class="mh-step" data-step="3">
+        <div class="mh-step__number">
+          <span class="mh-step__number-inner">3</span>
+          <span class="mh-step__number-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+          </span>
+        </div>
+        <div class="mh-step__content">
+          <span class="mh-step__label">Faça seu primeiro orçamento</span>
+          <p class="mh-step__desc">Crie e envie direto pro cliente pelo WhatsApp em minutos.</p>
+        </div>
+      </div>
+
+      <!-- Passo 4 -->
+      <div class="mh-step" data-step="4">
+        <div class="mh-step__number">
+          <span class="mh-step__number-inner">4</span>
+          <span class="mh-step__number-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          </span>
+        </div>
+        <div class="mh-step__content">
+          <span class="mh-step__label">Controle total</span>
+          <p class="mh-step__desc">Toda a sua marmoraria em um só lugar. Pedidos, estoque, financeiro e mais.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Steps Animation Script -->
+<script>
+(function() {
+  var steps = document.querySelectorAll('.mh-step');
+  var fill = document.getElementById('stepLineFill');
+  var current = 0;
+  var total = steps.length;
+  var autoplayTimer = null;
+  var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  function activateStep(index) {
+    steps.forEach(function(step, i) {
+      step.classList.remove('active', 'done');
+      if (i < index) step.classList.add('done');
+      if (i === index) step.classList.add('active');
+    });
+    var pct = (index / (total - 1)) * 100;
+    fill.style.width = pct + '%';
+  }
+
+  if (!isMobile) {
+    // DESKTOP: auto-play + click
+    activateStep(0);
+    autoplayTimer = setInterval(function() {
+      current = (current + 1) % total;
+      activateStep(current);
+    }, 2500);
+
+    steps.forEach(function(step, i) {
+      step.addEventListener('click', function() {
+        current = i;
+        activateStep(i);
+      });
+    });
+  } else {
+    // MOBILE: scroll reveal — aparece conforme rola
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var step = entry.target;
+          var index = parseInt(step.getAttribute('data-step')) - 1;
+
+          // Delay escalonado para cada step
+          setTimeout(function() {
+            step.classList.add('mh-visible');
+            // Ativa o step quando aparece
+            step.classList.add('active');
+            // Marca anteriores como done
+            steps.forEach(function(s, i) {
+              if (i < index) {
+                s.classList.remove('active');
+                s.classList.add('done');
+              }
+            });
+          }, index * 150);
+
+          observer.unobserve(step);
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    steps.forEach(function(step) {
+      observer.observe(step);
+    });
+  }
+
+  // Atualiza ao redimensionar
+  window.addEventListener('resize', function() {
+    var nowMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (nowMobile !== isMobile) {
+      location.reload();
+    }
+  });
+})();
+</script>
+
+<!-- ==================== PLANOS ==================== -->
+<section id="planos" class="mh-pricing">
+
+  <p class="mh-pricing__eyebrow">Planos</p>
+  <h2 class="mh-pricing__title">
+    Mais barato do que você imagina.<br>O mais <em>inteligente</em> que você já viu.
+  </h2>
+  <p class="mh-pricing__subtitle">Todos os planos sem fidelidade. Faça o teste grátis.</p>
+
+  <div class="mh-pricing__grid">
+
+    <!-- BASIC -->
+    <div class="mh-plan">
+      <h3 class="mh-plan__name">Marble Basic</h3>
+      <div class="mh-plan__price">
+        <span class="mh-plan__price-value">R$197</span>
+        <span class="mh-plan__price-period">/mês</span>
+      </div>
+      <p class="mh-plan__users">1 Usuário</p>
+      <ul class="mh-plan__features">
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Orçamento Inteligente
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Gestão de Pedidos
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Agenda
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Estoque de Chapas
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Dashboarding
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Clientes
+        </li>
+        <li class="mh-plan__feature mh-plan__feature--no">
+          <span class="mh-plan__check mh-plan__check--no"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          CRM
+        </li>
+        <li class="mh-plan__feature mh-plan__feature--no">
+          <span class="mh-plan__check mh-plan__check--no"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Contratos
+        </li>
+        <li class="mh-plan__feature mh-plan__feature--no">
+          <span class="mh-plan__check mh-plan__check--no"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Ordem de Serviço
+        </li>
+        <li class="mh-plan__feature mh-plan__feature--no">
+          <span class="mh-plan__check mh-plan__check--no"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Financeiro
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Suporte via WhatsApp
+        </li>
+      </ul>
+      <a href="#" class="mh-plan__cta mh-plan__cta--outline">Testar agora</a>
+    </div>
+
+    <!-- PRO (destaque) -->
+    <div class="mh-plan mh-plan--featured">
+      <span class="mh-plan__badge">Mais popular</span>
+      <h3 class="mh-plan__name">Marble Pro</h3>
+      <div class="mh-plan__price">
+        <span class="mh-plan__price-value">R$397</span>
+        <span class="mh-plan__price-period">/mês</span>
+      </div>
+      <p class="mh-plan__users">3 Usuários</p>
+      <ul class="mh-plan__features">
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Orçamento Inteligente
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Gestão de Pedidos
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Agenda
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Estoque de Chapas
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Dashboarding
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Clientes
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          CRM
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Contratos
+        </li>
+        <li class="mh-plan__feature mh-plan__feature--no">
+          <span class="mh-plan__check mh-plan__check--no"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Ordem de Serviço
+        </li>
+        <li class="mh-plan__feature mh-plan__feature--no">
+          <span class="mh-plan__check mh-plan__check--no"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          Financeiro
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Suporte via WhatsApp
+        </li>
+      </ul>
+      <a href="#" class="mh-plan__cta mh-plan__cta--solid">Testar agora</a>
+    </div>
+
+    <!-- BUSINESS -->
+    <div class="mh-plan">
+      <h3 class="mh-plan__name">Marble Business</h3>
+      <div class="mh-plan__price">
+        <span class="mh-plan__price-value">R$597</span>
+        <span class="mh-plan__price-period">/mês</span>
+      </div>
+      <p class="mh-plan__users">5 Usuários</p>
+      <ul class="mh-plan__features">
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Orçamento Inteligente
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Gestão de Pedidos
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Agenda
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Estoque de Chapas
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Dashboarding
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Clientes
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          CRM
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Contratos
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Ordem de Serviço
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Financeiro
+        </li>
+        <li class="mh-plan__feature mh-plan__feature--soon">
+          <span class="mh-plan__check mh-plan__check--soon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          Nota Fiscal — Em breve
+        </li>
+        <li class="mh-plan__feature">
+          <span class="mh-plan__check mh-plan__check--yes"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Suporte via WhatsApp
+        </li>
+      </ul>
+      <a href="#" class="mh-plan__cta mh-plan__cta--outline">Testar agora</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== DEPOIMENTOS ==================== -->
+<section class="mh-testimonials">
+
+  <p class="mh-testimonials__eyebrow">Depoimentos</p>
+  <h2 class="mh-testimonials__title">Marmorarias que faturam acima de R$ 4 milhões/ano já usam o MarbleHub</h2>
+
+  <div class="mh-testimonials__grid">
+
+    <!-- Chat 1 -->
+    <div class="mh-wpp">
+      <div class="mh-wpp__header">
+        <div class="mh-wpp__avatar"><img src="emerson.png" alt="Emerson"></div>
+        <div class="mh-wpp__contact">
+          <div class="mh-wpp__name">Emerson — Pedras Bella</div>
+          <div class="mh-wpp__status">online</div>
+        </div>
+        <div class="mh-wpp__icons">
+          <svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+      </div>
+      <div class="mh-wpp__body">
+        <div class="mh-wpp__msg mh-wpp__msg--in">
+          Cara, o orçamento que antes eu levava 40 minutos pra fazer no Excel agora faço em 5 minutos. Meus vendedores mandam pro cliente na hora pelo WhatsApp.
+          <span class="mh-wpp__msg-time">09:14</span>
+        </div>
+        <div class="mh-wpp__msg mh-wpp__msg--in">
+          O financeiro então... finalmente sei quanto entra e quanto sai. Parei de misturar conta PF com PJ.
+          <span class="mh-wpp__msg-time">09:15</span>
+        </div>
+        <div class="mh-wpp__msg mh-wpp__msg--out mh-wpp__msg--emoji">
+          🔥🔥🔥
+          <span class="mh-wpp__msg-time">09:15 <span class="mh-wpp__msg-check">✓✓</span></span>
+        </div>
+      </div>
+      <div class="mh-wpp__footer">
+        <div class="mh-wpp__input">Mensagem</div>
+        <div class="mh-wpp__send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></div>
+      </div>
+    </div>
+
+    <!-- Chat 2 -->
+    <div class="mh-wpp">
+      <div class="mh-wpp__header">
+        <div class="mh-wpp__avatar"><img src="thiago.png" alt="Thiago"></div>
+        <div class="mh-wpp__contact">
+          <div class="mh-wpp__name">Thiago — Mármores Premium</div>
+          <div class="mh-wpp__status">online</div>
+        </div>
+        <div class="mh-wpp__icons">
+          <svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+      </div>
+      <div class="mh-wpp__body">
+        <div class="mh-wpp__msg mh-wpp__msg--in">
+          Antes eu perdia pedido porque esquecia prazo. Agora a agenda me avisa tudo. Minha equipe parou de errar corte porque tá tudo no sistema.
+          <span class="mh-wpp__msg-time">10:32</span>
+        </div>
+        <div class="mh-wpp__msg mh-wpp__msg--in">
+          E o melhor: meu funcionário usa no celular na obra. Não precisa ligar pra mim pra saber nada.
+          <span class="mh-wpp__msg-time">10:33</span>
+        </div>
+        <div class="mh-wpp__msg mh-wpp__msg--out">
+          Top demais! Quanto tempo usando já?
+          <span class="mh-wpp__msg-time">10:34 <span class="mh-wpp__msg-check">✓✓</span></span>
+        </div>
+        <div class="mh-wpp__msg mh-wpp__msg--in">
+          3 meses. Não volto mais pro Excel nunca.
+          <span class="mh-wpp__msg-time">10:34</span>
+        </div>
+      </div>
+      <div class="mh-wpp__footer">
+        <div class="mh-wpp__input">Mensagem</div>
+        <div class="mh-wpp__send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></div>
+      </div>
+    </div>
+
+    <!-- Chat 3 -->
+    <div class="mh-wpp">
+      <div class="mh-wpp__header">
+        <div class="mh-wpp__avatar"><img src="raphael.png" alt="Raphael"></div>
+        <div class="mh-wpp__contact">
+          <div class="mh-wpp__name">Raphael — Stone Design</div>
+          <div class="mh-wpp__status">online</div>
+        </div>
+        <div class="mh-wpp__icons">
+          <svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+      </div>
+      <div class="mh-wpp__body">
+        <div class="mh-wpp__msg mh-wpp__msg--in">
+          Eu faturei 4.2 milhões ano passado e quase quebrei por falta de controle. Meu contador vivia reclamando.
+          <span class="mh-wpp__msg-time">14:07</span>
+        </div>
+        <div class="mh-wpp__msg mh-wpp__msg--in">
+          Desde que coloquei o MarbleHub parei de pagar comissão errada, faço contrato digital e sei exatamente meu lucro real. Recomendo demais.
+          <span class="mh-wpp__msg-time">14:08</span>
+        </div>
+        <div class="mh-wpp__msg mh-wpp__msg--out mh-wpp__msg--emoji">
+          💪👏
+          <span class="mh-wpp__msg-time">14:09 <span class="mh-wpp__msg-check">✓✓</span></span>
+        </div>
+      </div>
+      <div class="mh-wpp__footer">
+        <div class="mh-wpp__input">Mensagem</div>
+        <div class="mh-wpp__send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== CTA FINAL ==================== -->
+<section class="mh-cta-final">
+  <div class="mh-cta-final__deco mh-cta-final__deco--1"></div>
+  <div class="mh-cta-final__deco mh-cta-final__deco--2"></div>
+  <div class="mh-cta-final__inner">
+    <h2 class="mh-cta-final__title">Marmoraria organizada lucra mais.</h2>
+    <p class="mh-cta-final__subtitle">Comece hoje e veja os resultados hoje mesmo.</p>
+    <div class="mh-cta-final__buttons">
+      <a href="#" class="mh-cta-final__btn-primary">Testar grátis por 7 dias</a>
+      <a href="#" class="mh-cta-final__btn-secondary">Agendar demonstração</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section id="faq" class="mh-faq">
+  <div class="mh-faq__inner">
+
+    <p class="mh-faq__eyebrow">FAQ</p>
+    <h2 class="mh-faq__title">Perguntas frequentes</h2>
+
+    <!-- Sobre o produto -->
+    <div class="mh-faq__group">
+      <h3 class="mh-faq__group-title">Sobre o produto</h3>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Preciso instalar alguma coisa no computador?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Não. O MarbleHub funciona direto no navegador — no computador, celular ou tablet. Sem instalação, sem atualização manual. Você acessa de qualquer lugar com internet.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Funciona no celular?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Sim. O sistema foi desenvolvido pensando no marmoreiro que está na loja do cliente fazendo o orçamento na hora. Tudo funciona no celular, incluindo orçamentos, pedidos e agenda.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Minha equipe vai conseguir usar?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Sim. O MarbleHub foi criado para quem não tem experiência com sistemas. A interface é simples, visual e intuitiva. Oferecemos treinamento incluso em todos os planos.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Posso importar minha lista de materiais do Excel?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Sim. Você importa sua planilha de materiais, clientes e serviços diretamente no sistema. Em menos de 10 minutos seu cadastro já está pronto.</p></div>
+      </div>
+    </div>
+
+    <!-- Sobre planos e preços -->
+    <div class="mh-faq__group">
+      <h3 class="mh-faq__group-title">Sobre planos e preços</h3>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Tem contrato de fidelidade?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Não. Você assina mês a mês e cancela quando quiser, sem multa e sem burocracia.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          O que acontece depois dos 7 dias grátis?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Você escolhe o plano que melhor se encaixa no seu negócio e continua usando normalmente. Se decidir não continuar, o seu usuário é cancelado.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Posso mudar de plano depois?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Sim. Você pode fazer upgrade ou downgrade do seu plano a qualquer momento diretamente nas configurações da conta.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Tem desconto para pagamento anual?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Sim. No plano anual você economiza 2 meses — equivalente a pagar 10 meses e usar 12.</p></div>
+      </div>
+    </div>
+
+    <!-- Sobre segurança e dados -->
+    <div class="mh-faq__group">
+      <h3 class="mh-faq__group-title">Sobre segurança e dados</h3>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Meus dados ficam seguros?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Sim. O MarbleHub usa criptografia de ponta a ponta e os dados ficam armazenados em servidores seguros no Brasil. Nenhum dado da sua marmoraria é compartilhado com terceiros.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Se eu cancelar, perco meus dados?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Não imediatamente. Após o cancelamento seus dados ficam disponíveis para exportação por 30 dias. Você pode baixar tudo em Excel antes de sair.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Posso ter mais de um usuário na mesma conta?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Sim, dependendo do plano. O Basic inclui 1 usuário, o Pro inclui até 3 e o Business inclui até 5. Cada usuário tem login e senha próprios.</p></div>
+      </div>
+    </div>
+
+    <!-- Sobre suporte -->
+    <div class="mh-faq__group">
+      <h3 class="mh-faq__group-title">Sobre suporte</h3>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Como funciona o suporte?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Suporte via WhatsApp em todos os planos, em horário comercial. Respondemos em até 2 horas durante os dias úteis.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          Tem treinamento incluso?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">Sim. Ao criar sua conta você recebe acesso a vídeos de treinamento e um onboarding guiado para configurar o sistema no seu ritmo.</p></div>
+      </div>
+
+      <div class="mh-faq__item">
+        <button class="mh-faq__question">
+          E se o sistema ficar fora do ar?
+          <svg class="mh-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="mh-faq__answer"><p class="mh-faq__answer-text">O MarbleHub tem 99,9% de disponibilidade garantida. Em caso de instabilidade você é notificado por WhatsApp e e-mail imediatamente.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ Accordion Script -->
+<script>
+  document.querySelectorAll('.mh-faq__question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.mh-faq__item');
+      var wasActive = item.classList.contains('active');
+      // Fecha todos do mesmo grupo
+      item.closest('.mh-faq__group').querySelectorAll('.mh-faq__item').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      // Abre o clicado (se não estava aberto)
+      if (!wasActive) item.classList.add('active');
+    });
+  });
+</script>
+
+<!-- Hamburger Menu + Smooth Scroll -->
+<script>
+// Hamburger toggle
+var menuToggle = document.getElementById('menuToggle');
+var mobileMenu = document.getElementById('mobileMenu');
+
+menuToggle.addEventListener('click', function() {
+  mobileMenu.classList.toggle('open');
+});
+
+// Fecha menu ao clicar em link
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// Smooth scroll para todas as anchor links
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (el) {
+    event.preventDefault();
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var id = this.getAttribute('href').substring(1);
+    if (id && document.getElementById(id)) {
+      e.preventDefault();
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Fecha menu mobile se aberto
+      mobileMenu.classList.remove('open');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
