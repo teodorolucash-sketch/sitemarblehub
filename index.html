@@ -646,7 +646,158 @@
       .mh-features__title { font-size: 26px; margin-bottom: 24px; }
     }
 
-    /* ========== SEÇÃO DORES ========== */
+    /* ========== TABELA DE CONTRASTE ========== */
+    .mh-contrast {
+      background: var(--cream);
+      padding: 80px 24px;
+      font-family: var(--font-body);
+    }
+
+    .mh-contrast__title {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 12px;
+    }
+
+    .mh-contrast__subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mh-contrast__table {
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+
+    /* Headers */
+    .mh-contrast__headers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .mh-contrast__header {
+      padding: 24px 32px;
+    }
+
+    .mh-contrast__header--chaos { background: #2C2C2A; }
+    .mh-contrast__header--elite { background: var(--forest); }
+
+    .mh-contrast__header-label {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(245, 243, 238, 0.5);
+      margin-bottom: 6px;
+    }
+
+    .mh-contrast__header-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream-light);
+    }
+
+    /* Rows */
+    .mh-contrast__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+    }
+
+    .mh-contrast__cell {
+      padding: 16px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .mh-contrast__cell--chaos {
+      color: var(--text);
+    }
+
+    .mh-contrast__cell--elite {
+      color: var(--text);
+      border-left: 1px solid var(--border);
+    }
+
+    /* Cores alternadas nas linhas */
+    .mh-contrast__row:nth-child(odd) .mh-contrast__cell--chaos { background: var(--cream-light); }
+    .mh-contrast__row:nth-child(even) .mh-contrast__cell--chaos { background: var(--cream); }
+    .mh-contrast__row:nth-child(odd) .mh-contrast__cell--elite { background: #F0EDE5; }
+    .mh-contrast__row:nth-child(even) .mh-contrast__cell--elite { background: var(--cream); }
+
+    /* Bullets */
+    .mh-contrast__num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(107, 107, 95, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .mh-contrast__check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(201, 168, 76, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .mh-contrast__check svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Responsivo contraste */
+    @media (max-width: 768px) {
+      .mh-contrast { padding: 48px 16px; }
+
+      .mh-contrast__headers { grid-template-columns: 1fr; }
+      .mh-contrast__row { grid-template-columns: 1fr; }
+
+      .mh-contrast__cell--elite { border-left: none; border-top: 1px dashed var(--border); }
+
+      .mh-contrast__cell { padding: 14px 20px; font-size: 13px; }
+      .mh-contrast__header { padding: 20px; }
+      .mh-contrast__header-title { font-size: 16px; }
+
+      .mh-contrast__row {
+        border-top: 2px solid var(--border);
+      }
+    }
+
+    /* ========== SEÇÃO DORES (legado - mantido para não quebrar) ========== */
     .mh-pain {
       background-color: var(--cream);
       padding: 80px 24px;
@@ -2901,236 +3052,72 @@
 })();
 </script>
 
-<!-- ==================== DORES ==================== -->
-<section class="mh-pain">
-  <div class="mh-pain__inner">
+<!-- ==================== TABELA DE CONTRASTE ==================== -->
+<section class="mh-contrast">
+  <h2 class="mh-contrast__title">Você vende pedra, mas não precisa viver na idade das pedras.</h2>
+  <p class="mh-contrast__subtitle">Não é sorte. Não é porque têm mais clientes. É porque operam de um jeito completamente diferente.</p>
 
-    <!-- Visual — mesa caótica -->
-    <div class="mh-pain__visual">
-      <div class="mh-pain__scene">
-        <div class="mh-pain__desk">
+  <div class="mh-contrast__table">
 
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">📝</span> Orçamento no papel
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">💸</span> Nunca sobra dinheiro
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">🔀</span> Pedidos misturados
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">⏰</span> Sempre atrasa entrega
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">🏦</span> Conta PF + PJ misturada
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">📄</span> Sem contrato
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">💰</span> Comissão errada
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">🚶</span> Equipe sem controle
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">✂️</span> Cortes errados
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-          <div class="mh-pain__item">
-            <span class="mh-pain__item-icon">🧠</span> Tudo na sua cabeça
-            <span class="mh-pain__alert"><svg viewBox="0 0 24 24"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5"/></svg></span>
-          </div>
-
-        </div>
+    <div class="mh-contrast__headers">
+      <div class="mh-contrast__header mh-contrast__header--chaos">
+        <div class="mh-contrast__header-label">A maioria das marmorarias</div>
+        <div class="mh-contrast__header-title">Trabalha muito, ganha pouco</div>
+      </div>
+      <div class="mh-contrast__header mh-contrast__header--elite">
+        <div class="mh-contrast__header-label">Marmorarias de alto faturamento</div>
+        <div class="mh-contrast__header-title">Trabalha menos, lucra mais</div>
       </div>
     </div>
 
-    <!-- Texto -->
-    <div class="mh-pain__text">
-      <!--<p class="mh-pain__eyebrow">Realidade</p>-->
-      <h2 class="mh-pain__title">Você vende pedra, mas não precisa viver na idade das pedras.</h2>
-      <p class="mh-pain__subtitle">Você gerencia a sua marmoraria assim?</p>
-
-      <ul class="mh-pain__list">
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Orçamento feito no papel
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Nunca sobra dinheiro no final do mês mesmo vendendo muito
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Nunca sabe qual pedido parar a produção
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Sempre atrasa o dia da entrega
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Mistura conta física com conta da marmoraria
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Não usa contrato
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Paga comissão a mais para o vendedor
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Funcionários trabalham quando querem
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Produção sempre erra os cortes das medidas
-        </li>
-        <li class="mh-pain__list-item">
-          <span class="mh-pain__x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          Tudo da empresa está na sua cabeça e ninguém sabe de nada
-        </li>
-      </ul>
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">1</span>Orçamento feito no papel, fecha no feeling e descobre o prejuízo depois</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Orçamento pelo celular com custo, margem e m² calculados na hora</div>
     </div>
 
-  </div>
-</section>
-
-<!-- ==================== SOLUÇÃO ==================== -->
-<section class="mh-solution">
-  <div class="mh-solution__inner">
-
-    <!-- Texto -->
-    <div class="mh-solution__text">
-      <!--<p class="mh-solution__eyebrow">A diferença</p>-->
-      <h2 class="mh-solution__title">Como donos de marmorarias que faturam alto gerenciam suas marmorarias.</h2>
-      <p class="mh-solution__subtitle">Não é sorte. Não é porque têm mais clientes. É porque operam de um jeito completamente diferente.</p>
-
-      <ul class="mh-solution__list">
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          Orçamento feito pelo celular
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          Sabem exatamente o que vai entrar no mês
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          A produção tem ordem de prioridade clara
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          A agenda de instalações é automática
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          Fluxo de caixa separado e atualizado em tempo real
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          Todo projeto tem contrato assinado digitalmente
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          Comissão calculada automaticamente
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          Equipe com rotina definida no sistema
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          A medida sai do orçamento e vai direto para a produção
-        </li>
-        <li class="mh-solution__list-item">
-          <span class="mh-solution__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          O negócio funciona sem o dono presente
-        </li>
-      </ul>
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">2</span>Financeiro na cabeça, nunca sabe se o mês fechou no azul</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Dashboard em tempo real com faturamento, margem e lucro de cada projeto</div>
     </div>
 
-    <!-- Visual — mini dashboard -->
-    <div class="mh-solution__visual">
-      <div class="mh-solution__scene">
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">3</span>Produção gerenciada por WhatsApp, ninguém sabe o que priorizar</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Kanban de produção com status, prioridade e responsável por pedido</div>
+    </div>
 
-        <div class="mh-dash__header">
-          <span class="mh-dash__logo"><span class="mh-dash__logo-m">Marble</span><span class="mh-dash__logo-h">Hub</span></span>
-          <span class="mh-dash__status"><span class="mh-dash__status-dot"></span> Sistema ativo</span>
-        </div>
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">4</span>Agenda de instalação no WhatsApp, funcionário no endereço errado</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Agenda centralizada com endereço, equipe e horário organizados</div>
+    </div>
 
-        <div class="mh-dash__grid">
-          <div class="mh-dash__card">
-            <div class="mh-dash__card-label">Faturamento mês</div>
-            <div class="mh-dash__card-value mh-dash__card-value--gold">R$ 342k</div>
-            <div class="mh-dash__card-change">↑ 18% vs mês anterior</div>
-          </div>
-          <div class="mh-dash__card">
-            <div class="mh-dash__card-label">Orçamentos abertos</div>
-            <div class="mh-dash__card-value">23</div>
-            <div class="mh-dash__card-change">↑ 5 novos hoje</div>
-          </div>
-          <div class="mh-dash__card">
-            <div class="mh-dash__card-label">Pedidos em produção</div>
-            <div class="mh-dash__card-value">12</div>
-            <div class="mh-dash__chart">
-              <div class="mh-dash__bar" style="height:40%"></div>
-              <div class="mh-dash__bar" style="height:60%"></div>
-              <div class="mh-dash__bar" style="height:45%"></div>
-              <div class="mh-dash__bar" style="height:80%"></div>
-              <div class="mh-dash__bar mh-dash__bar--active" style="height:100%"></div>
-              <div class="mh-dash__bar" style="height:70%"></div>
-              <div class="mh-dash__bar" style="height:55%"></div>
-            </div>
-          </div>
-          <div class="mh-dash__card">
-            <div class="mh-dash__card-label">Instalações semana</div>
-            <div class="mh-dash__card-value">8</div>
-            <div class="mh-dash__card-change">3 amanhã</div>
-          </div>
-        </div>
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">5</span>Mistura conta PF com PJ, decisão no feeling</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Fluxo de caixa separado e lançado automaticamente a cada orçamento aprovado</div>
+    </div>
 
-        <div class="mh-dash__activity">
-          <div class="mh-dash__activity-title">Atividade recente</div>
-          <div class="mh-dash__activity-item">
-            <span class="mh-dash__activity-dot mh-dash__activity-dot--green"></span>
-            <span class="mh-dash__activity-label">Contrato #847 assinado digitalmente</span>
-            <span class="mh-dash__activity-time">2 min</span>
-          </div>
-          <div class="mh-dash__activity-item">
-            <span class="mh-dash__activity-dot mh-dash__activity-dot--gold"></span>
-            <span class="mh-dash__activity-label">Orçamento enviado via WhatsApp</span>
-            <span class="mh-dash__activity-time">15 min</span>
-          </div>
-          <div class="mh-dash__activity-item">
-            <span class="mh-dash__activity-dot mh-dash__activity-dot--blue"></span>
-            <span class="mh-dash__activity-label">Comissão calculada — R$ 1.240</span>
-            <span class="mh-dash__activity-time">1h</span>
-          </div>
-        </div>
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">6</span>Sem contrato ou contrato genérico, sem proteção jurídica</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Contrato gerado do orçamento e assinado digitalmente em segundos</div>
+    </div>
 
-      </div>
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">7</span>Paga comissão sem saber se o vendedor dá lucro ou prejuízo</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Comissão calculada automaticamente com base no lucro real de cada venda</div>
+    </div>
+
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">8</span>Equipe sem rotina, trabalha quando quer</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Equipe com tarefas definidas no sistema, sem precisar perguntar</div>
+    </div>
+
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">9</span>Medida redigitada na produção, erro humano garantido</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Medida sai do orçamento e vai direto para produção sem redigitar</div>
+    </div>
+
+    <div class="mh-contrast__row">
+      <div class="mh-contrast__cell mh-contrast__cell--chaos"><span class="mh-contrast__num">10</span>Tudo na cabeça do dono, negócio para se ele parar</div>
+      <div class="mh-contrast__cell mh-contrast__cell--elite"><span class="mh-contrast__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Negócio funciona sem o dono presente, informação no sistema</div>
     </div>
 
   </div>
