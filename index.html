@@ -2003,8 +2003,8 @@
 
     /* ========== CTA FINAL ========== */
     .mh-cta-final {
-      background: var(--cream);
-      padding: 48px 24px;
+      background: var(--forest);
+      padding: 80px 24px;
       text-align: center;
       font-family: var(--font-body);
       position: relative;
@@ -2012,7 +2012,7 @@
     }
 
     .mh-cta-final__inner {
-      max-width: 800px;
+      max-width: 720px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
@@ -2020,17 +2020,26 @@
 
     .mh-cta-final__title {
       font-family: var(--font-display);
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: clamp(28px, 4vw, 44px);
       font-weight: 700;
-      color: var(--forest);
-      line-height: 1.15;
-      margin-bottom: 16px;
+      color: var(--cream-light);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .mh-cta-final__title em {
+      font-style: italic;
+      color: var(--gold);
     }
 
     .mh-cta-final__subtitle {
-      font-size: 18px;
-      color: var(--muted);
-      margin-bottom: 28px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #A8B8A8;
+      margin-bottom: 36px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .mh-cta-final__buttons {
@@ -2039,26 +2048,27 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
+      margin-bottom: 24px;
     }
 
     .mh-cta-final__btn-primary {
       display: inline-flex;
       align-items: center;
       padding: 16px 36px;
-      background: var(--forest);
-      color: var(--cream);
+      background: var(--gold);
+      color: var(--forest);
       font-family: var(--font-body);
       font-size: 16px;
       font-weight: 600;
       border: none;
-      border-radius: 12px;
+      border-radius: 99px;
       text-decoration: none;
       cursor: pointer;
       transition: background 0.2s, transform 0.2s;
     }
 
     .mh-cta-final__btn-primary:hover {
-      background: var(--forest-medium);
+      background: #d4b35a;
       transform: translateY(-2px);
     }
 
@@ -2066,46 +2076,35 @@
       display: inline-flex;
       align-items: center;
       padding: 16px 36px;
-      background: var(--cream-light);
-      color: var(--forest);
+      background: transparent;
+      color: var(--cream-light);
       font-family: var(--font-body);
       font-size: 16px;
       font-weight: 600;
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      border: 1px solid rgba(237, 232, 223, 0.3);
+      border-radius: 99px;
       text-decoration: none;
       cursor: pointer;
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      transition: border-color 0.2s, transform 0.2s;
     }
 
     .mh-cta-final__btn-secondary:hover {
-      background: var(--cream);
-      border-color: var(--forest);
+      border-color: var(--cream-light);
       transform: translateY(-2px);
     }
 
-    /* Decoração de fundo */
-    .mh-cta-final__deco {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.06;
-      background: var(--forest);
-    }
-
-    .mh-cta-final__deco--1 {
-      width: 300px; height: 300px;
-      top: -100px; left: -80px;
-    }
-
-    .mh-cta-final__deco--2 {
-      width: 200px; height: 200px;
-      bottom: -60px; right: -40px;
+    .mh-cta-final__trust {
+      font-size: 13px;
+      color: rgba(168, 184, 168, 0.6);
+      letter-spacing: 0.02em;
     }
 
     @media (max-width: 768px) {
       .mh-cta-final { padding: 56px 16px; }
+      .mh-cta-final__title { font-size: 26px; }
+      .mh-cta-final__subtitle { font-size: 15px; }
       .mh-cta-final__btn-primary,
-      .mh-cta-final__btn-secondary { width: 100%; justify-content: center; }
+      .mh-cta-final__btn-secondary { width: 100%; justify-content: center; padding: 14px 28px; }
     }
 
     /* ========== FAQ ========== */
@@ -3809,15 +3808,18 @@
 
 <!-- ==================== CTA FINAL ==================== -->
 <section class="mh-cta-final">
-  <div class="mh-cta-final__deco mh-cta-final__deco--1"></div>
-  <div class="mh-cta-final__deco mh-cta-final__deco--2"></div>
   <div class="mh-cta-final__inner">
-    <h2 class="mh-cta-final__title">Marmoraria organizada lucra mais.</h2>
-    <p class="mh-cta-final__subtitle">Comece hoje e veja os resultados hoje mesmo.</p>
+    <h2 class="mh-cta-final__title">
+      Marmoraria organizada lucra mais.<br>Comece <em>hoje</em> e veja os resultados ainda essa semana.
+    </h2>
+    <p class="mh-cta-final__subtitle">
+      Você já perdeu dinheiro suficiente no caos. Cada dia sem controle é mais um projeto com margem errada, mais uma entrega atrasada, mais um mês que fecha sem saber o resultado. O MarbleHub está pronto. Sua marmoraria também está.
+    </p>
     <div class="mh-cta-final__buttons">
-      <a href="#" class="mh-cta-final__btn-primary">Testar grátis por 7 dias</a>
+      <a href="#" class="mh-cta-final__btn-primary">Comece grátis por 7 dias</a>
       <a href="#" class="mh-cta-final__btn-secondary">Agendar demonstração</a>
     </div>
+    <p class="mh-cta-final__trust">Sem cartão de crédito · Sem fidelidade · Cancele quando quiser</p>
   </div>
 </section>
 
