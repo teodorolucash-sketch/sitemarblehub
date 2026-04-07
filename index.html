@@ -2243,41 +2243,114 @@
     .mh-nav__mobile-menu {
       display: none;
       position: fixed;
-      top: 64px;
+      top: 0;
       left: 0;
       right: 0;
+      bottom: 0;
       background: var(--forest);
-      padding: 16px 24px 24px;
+      padding: 0;
       flex-direction: column;
-      gap: 16px;
-      z-index: 49;
-      border-top: 1px solid rgba(237,232,223,0.1);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      z-index: 100;
+      overflow-y: auto;
     }
 
     .mh-nav__mobile-menu.open { display: flex; }
 
-    .mh-nav__mobile-menu a {
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 500;
-      color: rgba(237, 232, 223, 0.8);
-      text-decoration: none;
-      padding: 8px 0;
+    .mh-mobile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
       border-bottom: 1px solid rgba(237,232,223,0.08);
     }
 
-    .mh-nav__mobile-menu a:last-child { border-bottom: none; }
+    .mh-mobile-header__logo {
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+
+    .mh-mobile-header__logo-mar {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .mh-mobile-header__logo-hub {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .mh-mobile-header__right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mh-mobile-header__entrar {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .mh-mobile-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .mh-mobile-close svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--cream);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .mh-mobile-links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 32px;
+      gap: 8px;
+    }
+
+    .mh-mobile-links a {
+      font-family: var(--font-body);
+      font-size: 22px;
+      font-weight: 500;
+      color: rgba(237, 232, 223, 0.8);
+      text-decoration: none;
+      padding: 14px 0;
+      transition: color 0.2s;
+    }
+
+    .mh-mobile-links a:hover { color: var(--cream); }
+
+    .mh-mobile-bottom {
+      padding: 24px 32px 40px;
+    }
 
     .mh-nav__mobile-cta {
       display: block;
       text-align: center;
-      padding: 12px 24px;
+      padding: 16px 32px;
       background: var(--cream-light);
       color: var(--forest);
+      font-family: var(--font-body);
+      font-size: 16px;
       font-weight: 600;
-      border-radius: 10px;
-      margin-top: 8px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-bottom: 24px;
     }
 
     @media (max-width: 768px) {
@@ -2300,16 +2373,29 @@
       .mh-hero__subtitle { font-size: 14px; }
       .mh-hero__subtext { font-size: 13px; }
 
-      .mh-hub-wrapper { padding: 16px 0; }
+      .mh-hub-wrapper {
+        padding: 16px 0;
+        background: radial-gradient(ellipse at 20% 50%, rgba(42, 74, 42, 0.06) 0%, rgba(237, 232, 223, 0) 70%);
+      }
 
       .mh-hub {
         height: auto;
         aspect-ratio: auto;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10px 20px;
+        padding: 16px 0;
         align-items: center;
-        gap: 10px;
-        padding: 20px 0;
+      }
+
+      .mh-hub__center {
+        grid-row: 1 / 6;
+        grid-column: 1;
+        align-self: center;
+      }
+
+      .mh-hub__module {
+        grid-column: 2;
       }
 
       .mh-hub__center {
@@ -2317,18 +2403,39 @@
         top: auto;
         left: auto;
         transform: none;
-        margin-bottom: 16px;
-        padding: 18px 28px;
+        padding: 16px 20px;
+        flex-shrink: 0;
       }
 
-      .mh-hub__logo-mar, .mh-hub__logo-hub { font-size: 20px; }
+      .mh-hub__logo-mar, .mh-hub__logo-hub { font-size: 18px; }
+      .mh-hub__logo-sub { font-size: 7px; }
       .mh-hub__lines { display: none; }
+
+      /* Esconde cards que não são os 4 principais no mobile */
+      .mh-mod--os,
+      .mh-mod--agenda,
+      .mh-mod--contratos,
+      .mh-mod--clientes,
+      .mh-mod--crm,
+      .mh-mod--dashboarding {
+        display: none !important;
+      }
 
       .mh-hub__module {
         position: relative;
         top: auto !important;
         left: auto !important;
         right: auto !important;
+        width: 100%;
+        justify-content: flex-start;
+        border-radius: 14px;
+        padding: 14px 18px;
+        font-size: 14px;
+      }
+
+      /* Container dos cards empilha vertical */
+      .mh-hub .mh-hub__module:first-of-type {
+        margin-top: 0;
       }
 
       .mh-hero__ctas { gap: 10px; }
@@ -2437,12 +2544,26 @@
 
 <!-- Menu mobile -->
 <div class="mh-nav__mobile-menu" id="mobileMenu">
-  <a href="#modulos">Ver demonstração</a>
-  <a href="#como-funciona">Como funciona</a>
-  <a href="#planos">Planos</a>
-  <a href="#faq">FAQ</a>
-  <a href="#">Entrar</a>
-  <a href="#planos" class="mh-nav__mobile-cta">Testar agora</a>
+  <div class="mh-mobile-header">
+    <a href="/" class="mh-mobile-header__logo">
+      <span class="mh-mobile-header__logo-mar">Marble</span><span class="mh-mobile-header__logo-hub">Hub</span>
+    </a>
+    <div class="mh-mobile-header__right">
+      <a href="#" class="mh-mobile-header__entrar">Entrar</a>
+      <button class="mh-mobile-close" id="menuClose" aria-label="Fechar">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mh-mobile-links">
+    <a href="#modulos">Ver demonstração</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#planos">Planos</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="mh-mobile-bottom">
+    <a href="#planos" class="mh-nav__mobile-cta">Testar agora</a>
+  </div>
 </div>
 
 <!-- ==================== HERO ==================== -->
@@ -3707,16 +3828,24 @@
 <script>
 // Hamburger toggle
 var menuToggle = document.getElementById('menuToggle');
+var menuClose = document.getElementById('menuClose');
 var mobileMenu = document.getElementById('mobileMenu');
 
 menuToggle.addEventListener('click', function() {
-  mobileMenu.classList.toggle('open');
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+menuClose.addEventListener('click', function() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
 });
 
 // Fecha menu ao clicar em link
 mobileMenu.querySelectorAll('a').forEach(function(link) {
   link.addEventListener('click', function() {
     mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
   });
 });
 
