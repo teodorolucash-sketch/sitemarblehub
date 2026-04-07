@@ -328,18 +328,18 @@
       stroke-linejoin: round;
     }
 
-    /* Posições — 5 esquerda, 5 direita — bem espalhados */
-    .mh-mod--orcamento       { top: 2%;   left: 4%; }
-    .mh-mod--pedidos         { top: 22%;  left: 0%; }
-    .mh-mod--os              { top: 42%;  left: -1%; }
-    .mh-mod--agenda          { top: 62%;  left: 0%; }
-    .mh-mod--contratos       { top: 82%;  left: 5%; }
+    /* Posições — 5 esquerda, 5 direita — espelho simétrico */
+    .mh-mod--orcamento       { top: 4%;   left: 3%; }
+    .mh-mod--pedidos         { top: 23%;  left: 0%; }
+    .mh-mod--os              { top: 42%;  left: 0%; }
+    .mh-mod--agenda          { top: 61%;  left: 0%; }
+    .mh-mod--contratos       { top: 80%;  left: 3%; }
 
-    .mh-mod--financeiro      { top: 2%;   right: 4%; }
-    .mh-mod--estoque         { top: 22%;  right: 0%; }
-    .mh-mod--clientes        { top: 42%;  right: -1%; }
-    .mh-mod--crm             { top: 62%;  right: 0%; }
-    .mh-mod--dashboarding    { top: 82%;  right: 5%; }
+    .mh-mod--financeiro      { top: 4%;   right: 3%; }
+    .mh-mod--estoque         { top: 23%;  right: 0%; }
+    .mh-mod--clientes        { top: 42%;  right: 0%; }
+    .mh-mod--crm             { top: 61%;  right: 0%; }
+    .mh-mod--dashboarding    { top: 80%;  right: 3%; }
 
     /* ========== CTAs ========== */
     .mh-hero__ctas {
@@ -2461,29 +2461,30 @@
 
       <!-- SVG — Linhas animadas + bolinhas -->
       <svg class="mh-hub__lines" viewBox="0 0 1060 460" preserveAspectRatio="xMidYMid meet">
-        <!-- Linhas esquerda -->
-        <line class="mh-hub__line" x1="530" y1="230" x2="120" y2="30"/>
-        <line class="mh-hub__line" x1="530" y1="230" x2="80"  y2="120"/>
-        <line class="mh-hub__line" x1="530" y1="230" x2="70"  y2="215"/>
-        <line class="mh-hub__line" x1="530" y1="230" x2="80"  y2="310"/>
-        <line class="mh-hub__line" x1="530" y1="230" x2="130" y2="400"/>
-        <!-- Linhas direita -->
-        <line class="mh-hub__line" x1="530" y1="230" x2="940" y2="30"/>
-        <line class="mh-hub__line" x1="530" y1="230" x2="980" y2="120"/>
-        <line class="mh-hub__line" x1="530" y1="230" x2="990" y2="215"/>
-        <line class="mh-hub__line" x1="530" y1="230" x2="980" y2="310"/>
-        <line class="mh-hub__line" x1="530" y1="230" x2="930" y2="400"/>
-        <!-- Bolinhas nos endpoints -->
-        <circle class="mh-hub__dot" cx="120" cy="30"  r="3.5"/>
-        <circle class="mh-hub__dot" cx="80"  cy="120" r="3.5"/>
-        <circle class="mh-hub__dot" cx="70"  cy="215" r="3.5"/>
-        <circle class="mh-hub__dot" cx="80"  cy="310" r="3.5"/>
-        <circle class="mh-hub__dot" cx="130" cy="400" r="3.5"/>
-        <circle class="mh-hub__dot" cx="940" cy="30"  r="3.5"/>
-        <circle class="mh-hub__dot" cx="980" cy="120" r="3.5"/>
-        <circle class="mh-hub__dot" cx="990" cy="215" r="3.5"/>
-        <circle class="mh-hub__dot" cx="980" cy="310" r="3.5"/>
-        <circle class="mh-hub__dot" cx="930" cy="400" r="3.5"/>
+        <!-- Linhas esquerda (x2 = borda direita dos cards esquerda) -->
+        <line class="mh-hub__line" x1="530" y1="230" x2="130" y2="38"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="100" y2="125"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="100" y2="215"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="100" y2="305"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="130" y2="390"/>
+        <!-- Linhas direita (x2 = 1060 - x2_esquerda = espelho) -->
+        <line class="mh-hub__line" x1="530" y1="230" x2="930" y2="38"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="960" y2="125"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="960" y2="215"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="960" y2="305"/>
+        <line class="mh-hub__line" x1="530" y1="230" x2="930" y2="390"/>
+        <!-- Bolinhas esquerda -->
+        <circle class="mh-hub__dot" cx="130" cy="38"  r="3.5"/>
+        <circle class="mh-hub__dot" cx="100" cy="125" r="3.5"/>
+        <circle class="mh-hub__dot" cx="100" cy="215" r="3.5"/>
+        <circle class="mh-hub__dot" cx="100" cy="305" r="3.5"/>
+        <circle class="mh-hub__dot" cx="130" cy="390" r="3.5"/>
+        <!-- Bolinhas direita (espelho) -->
+        <circle class="mh-hub__dot" cx="930" cy="38"  r="3.5"/>
+        <circle class="mh-hub__dot" cx="960" cy="125" r="3.5"/>
+        <circle class="mh-hub__dot" cx="960" cy="215" r="3.5"/>
+        <circle class="mh-hub__dot" cx="960" cy="305" r="3.5"/>
+        <circle class="mh-hub__dot" cx="930" cy="390" r="3.5"/>
       </svg>
 
       <!-- Centro — Logo card -->
