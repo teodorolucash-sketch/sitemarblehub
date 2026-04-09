@@ -3813,6 +3813,107 @@
   </div>
 </section>
 
+<!-- ==================== FOOTER ==================== -->
+<footer class="mh-footer">
+  <div class="mh-footer__inner">
+    <!-- Logo -->
+    <div class="mh-footer__logo">
+      <span class="mh-footer__logo-marble">Marble</span><span class="mh-footer__logo-hub">Hub</span>
+    </div>
+
+    <!-- Copyright -->
+    <p class="mh-footer__copyright">Copyright &copy; 2026 Marble Hub. Todos os direitos reservados.</p>
+
+    <!-- Links legais -->
+    <div class="mh-footer__links">
+      <a href="#" class="mh-footer__link">Termos de uso</a>
+      <span class="mh-footer__divider">|</span>
+      <a href="#" class="mh-footer__link">Politica de privacidade</a>
+      <span class="mh-footer__divider">|</span>
+      <a href="#" class="mh-footer__link">Politica de cookies</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .mh-footer {
+    background-color: #1a1a1a;
+    padding: 48px 24px 32px;
+    text-align: center;
+    font-family: var(--font-body);
+  }
+
+  .mh-footer__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .mh-footer__logo {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .mh-footer__logo-marble {
+    color: #fff;
+  }
+
+  .mh-footer__logo-hub {
+    color: var(--gold);
+  }
+
+  .mh-footer__copyright {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+  }
+
+  .mh-footer__links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mh-footer__link {
+    font-size: 14px;
+    color: #ccc;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .mh-footer__link:hover {
+    color: #fff;
+  }
+
+  .mh-footer__divider {
+    color: #555;
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    .mh-footer {
+      padding: 36px 16px 24px;
+    }
+
+    .mh-footer__links {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mh-footer__divider {
+      display: none;
+    }
+  }
+</style>
+
 <!-- Hamburger Menu + Smooth Scroll -->
 <script>
 // Hamburger toggle
