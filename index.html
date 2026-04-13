@@ -2674,6 +2674,7 @@
 
     .mh-cascade__card {
       position: relative;
+      z-index: 1;
       background: var(--cream-light);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -2682,13 +2683,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      opacity: 0.5;
       transform: translateY(8px);
       transition:
-        opacity 400ms ease-out,
         transform 400ms ease-out,
         background-color 300ms ease-out,
         border-color 300ms ease-out;
+    }
+
+    .mh-cascade__card .mh-cascade__icon,
+    .mh-cascade__card .mh-cascade__card-title,
+    .mh-cascade__card .mh-cascade__card-desc {
+      opacity: 0.5;
+      transition: opacity 400ms ease-out;
     }
 
     .mh-cascade__descender {
@@ -2755,10 +2761,27 @@
     .mh-cascade.step-card-2 [data-card="2"],
     .mh-cascade.step-card-3 [data-card="3"],
     .mh-cascade.step-card-4 [data-card="4"] {
-      opacity: 1;
       transform: translateY(0);
       background: #FFFFFF;
       border-color: var(--forest);
+    }
+
+    .mh-cascade.step-card-0 [data-card="0"] .mh-cascade__icon,
+    .mh-cascade.step-card-0 [data-card="0"] .mh-cascade__card-title,
+    .mh-cascade.step-card-0 [data-card="0"] .mh-cascade__card-desc,
+    .mh-cascade.step-card-1 [data-card="1"] .mh-cascade__icon,
+    .mh-cascade.step-card-1 [data-card="1"] .mh-cascade__card-title,
+    .mh-cascade.step-card-1 [data-card="1"] .mh-cascade__card-desc,
+    .mh-cascade.step-card-2 [data-card="2"] .mh-cascade__icon,
+    .mh-cascade.step-card-2 [data-card="2"] .mh-cascade__card-title,
+    .mh-cascade.step-card-2 [data-card="2"] .mh-cascade__card-desc,
+    .mh-cascade.step-card-3 [data-card="3"] .mh-cascade__icon,
+    .mh-cascade.step-card-3 [data-card="3"] .mh-cascade__card-title,
+    .mh-cascade.step-card-3 [data-card="3"] .mh-cascade__card-desc,
+    .mh-cascade.step-card-4 [data-card="4"] .mh-cascade__icon,
+    .mh-cascade.step-card-4 [data-card="4"] .mh-cascade__card-title,
+    .mh-cascade.step-card-4 [data-card="4"] .mh-cascade__card-desc {
+      opacity: 1;
     }
 
     .mh-cascade.step-card-0 [data-card="0"] .mh-cascade__icon,
@@ -3134,7 +3157,7 @@
           observer.disconnect();
         }
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
     observer.observe(section);
   }
 })();
