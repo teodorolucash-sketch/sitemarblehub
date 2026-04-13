@@ -839,7 +839,7 @@
       .mh-pain { padding: 48px 16px; }
 
       .mh-pain__inner {
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 40px;
         align-items: stretch;
       }
@@ -1108,11 +1108,18 @@
       .mh-solution { padding: 48px 16px; }
 
       .mh-solution__inner {
-        flex-direction: column-reverse;
+        flex-direction: column;
         gap: 40px;
+        align-items: stretch;
       }
 
-      .mh-solution__scene { max-width: 360px; padding: 20px; }
+      .mh-solution__text,
+      .mh-solution__visual {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .mh-solution__scene { max-width: 360px; margin: 0 auto; padding: 20px; }
 
       .mh-dash__card-value { font-size: 18px; }
     }
@@ -2461,7 +2468,7 @@
 
       /* Solução */
       .mh-solution { padding: 48px 16px; }
-      .mh-solution__inner { flex-direction: column-reverse; gap: 32px; }
+      .mh-solution__inner { flex-direction: column; gap: 32px; }
       .mh-solution__title { font-size: 24px; }
       .mh-solution__scene { max-width: 100%; padding: 18px; }
       .mh-dash__card-value { font-size: 18px; }
