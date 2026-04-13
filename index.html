@@ -2810,24 +2810,6 @@
       text-align: center;
     }
 
-    .mh-cascade__reset {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--forest);
-      background: transparent;
-      border: 1px solid var(--forest);
-      border-radius: 8px;
-      padding: 10px 24px;
-      cursor: pointer;
-      transition: background-color 200ms ease, color 200ms ease;
-    }
-
-    .mh-cascade__reset:hover {
-      background: var(--forest);
-      color: var(--cream);
-    }
-
     /* Tablet: 3 + 2 cards */
     @media (max-width: 960px) {
       .mh-cascade__grid {
@@ -3095,7 +3077,6 @@
 
     <div class="mh-cascade__footer">
       <p class="mh-cascade__footer-text">Zero redigitação. O MarbleHub conecta tudo automaticamente.</p>
-      <button type="button" class="mh-cascade__reset" id="cascadeReset">↺ Ver novamente</button>
     </div>
   </div>
 </section>
@@ -3105,8 +3086,7 @@
 (function() {
   var section = document.querySelector('.mh-cascade');
   var btn = document.getElementById('cascadeBtn');
-  var resetBtn = document.getElementById('cascadeReset');
-  if (!section || !btn || !resetBtn) return;
+  if (!section || !btn) return;
 
   var timers = [];
   var hasPlayed = false;
@@ -3143,16 +3123,7 @@
     });
   }
 
-  function reset() {
-    clearTimers();
-    var toRemove = ['is-playing', 'is-approved', 'step-trunk', 'step-connector',
-                    'step-card-0', 'step-card-1', 'step-card-2', 'step-card-3', 'step-card-4',
-                    'step-done'];
-    toRemove.forEach(function(c) { section.classList.remove(c); });
-  }
-
   btn.addEventListener('click', play);
-  resetBtn.addEventListener('click', reset);
 
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries) {
