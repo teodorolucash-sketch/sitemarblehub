@@ -2508,6 +2508,352 @@
       .mh-faq__question { font-size: 14px; padding: 16px; }
       .mh-faq__answer-text { font-size: 13px; padding: 0 16px 16px; }
     }
+
+    /* ========== CASCADE SECTION ========== */
+    .mh-cascade {
+      background: var(--cream);
+      padding: 96px 32px;
+    }
+
+    .mh-cascade__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .mh-cascade__eyebrow {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .mh-cascade__title {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--forest);
+      text-align: center;
+      max-width: 760px;
+      margin: 16px auto 0;
+    }
+
+    .mh-cascade__subtitle {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--muted);
+      text-align: center;
+      max-width: 560px;
+      margin: 16px auto 0;
+    }
+
+    .mh-cascade__button-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    .mh-cascade__button {
+      position: relative;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: 0;
+      cursor: pointer;
+      background: var(--forest);
+      color: var(--cream);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: background-color 300ms ease, color 300ms ease;
+    }
+
+    .mh-cascade__button:hover {
+      background: var(--forest-medium);
+    }
+
+    .mh-cascade.is-approved .mh-cascade__button {
+      background: var(--gold);
+      color: var(--forest);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .mh-cascade__button-approved { display: none; }
+    .mh-cascade.is-approved .mh-cascade__button-default { display: none; }
+    .mh-cascade.is-approved .mh-cascade__button-approved { display: inline; }
+
+    /* Linha tronco do botão */
+    .mh-cascade__trunk {
+      position: relative;
+      width: 1px;
+      height: 40px;
+      margin: 24px auto 0;
+      background: var(--border);
+    }
+
+    .mh-cascade__trunk::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--forest);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 500ms ease-out;
+    }
+
+    .mh-cascade.step-trunk .mh-cascade__trunk::after {
+      transform: scaleY(1);
+    }
+
+    /* Wrapper da grade + conectores */
+    .mh-cascade__grid-wrap {
+      position: relative;
+    }
+
+    .mh-cascade__connector {
+      position: absolute;
+      background: var(--border);
+      pointer-events: none;
+    }
+
+    .mh-cascade__connector::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--forest);
+      transition: transform 500ms ease-out;
+    }
+
+    .mh-cascade__connector--h {
+      left: 10%;
+      right: 10%;
+      top: 0;
+      height: 1px;
+    }
+
+    .mh-cascade__connector--h::after {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    .mh-cascade.step-connector .mh-cascade__connector--h::after {
+      transform: scaleX(1);
+    }
+
+    .mh-cascade__connector--v {
+      display: none;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      transform: translateX(-50%);
+    }
+
+    .mh-cascade__connector--v::after {
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 700ms ease-out;
+    }
+
+    .mh-cascade.step-connector .mh-cascade__connector--v::after {
+      transform: scaleY(1);
+    }
+
+    /* Grid de cards */
+    .mh-cascade__grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      padding-top: 40px;
+    }
+
+    .mh-cascade__card {
+      position: relative;
+      background: var(--cream-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0.5;
+      transform: translateY(8px);
+      transition:
+        opacity 400ms ease-out,
+        transform 400ms ease-out,
+        background-color 300ms ease-out,
+        border-color 300ms ease-out;
+    }
+
+    .mh-cascade__descender {
+      position: absolute;
+      left: 50%;
+      top: -40px;
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+      transform: translateX(-50%);
+      transition: background-color 300ms ease-out;
+    }
+
+    .mh-cascade__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #E8F0E4;
+      color: var(--forest);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      transition: background-color 300ms ease-out, color 300ms ease-out;
+    }
+
+    .mh-cascade__icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .mh-cascade__card-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .mh-cascade__card-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .mh-cascade__check {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-top: 16px;
+      opacity: 0;
+      transition: opacity 300ms ease-out;
+    }
+
+    /* Estados ativos dos cards (classes acumulam ao longo da animação) */
+    .mh-cascade.step-card-0 [data-card="0"],
+    .mh-cascade.step-card-1 [data-card="1"],
+    .mh-cascade.step-card-2 [data-card="2"],
+    .mh-cascade.step-card-3 [data-card="3"],
+    .mh-cascade.step-card-4 [data-card="4"] {
+      opacity: 1;
+      transform: translateY(0);
+      background: #FFFFFF;
+      border-color: var(--forest);
+    }
+
+    .mh-cascade.step-card-0 [data-card="0"] .mh-cascade__icon,
+    .mh-cascade.step-card-1 [data-card="1"] .mh-cascade__icon,
+    .mh-cascade.step-card-2 [data-card="2"] .mh-cascade__icon,
+    .mh-cascade.step-card-3 [data-card="3"] .mh-cascade__icon,
+    .mh-cascade.step-card-4 [data-card="4"] .mh-cascade__icon {
+      background: var(--forest);
+      color: var(--gold);
+    }
+
+    .mh-cascade.step-card-0 [data-card="0"] .mh-cascade__descender,
+    .mh-cascade.step-card-1 [data-card="1"] .mh-cascade__descender,
+    .mh-cascade.step-card-2 [data-card="2"] .mh-cascade__descender,
+    .mh-cascade.step-card-3 [data-card="3"] .mh-cascade__descender,
+    .mh-cascade.step-card-4 [data-card="4"] .mh-cascade__descender {
+      background: var(--forest);
+    }
+
+    .mh-cascade.step-card-0 [data-card="0"] .mh-cascade__check,
+    .mh-cascade.step-card-1 [data-card="1"] .mh-cascade__check,
+    .mh-cascade.step-card-2 [data-card="2"] .mh-cascade__check,
+    .mh-cascade.step-card-3 [data-card="3"] .mh-cascade__check,
+    .mh-cascade.step-card-4 [data-card="4"] .mh-cascade__check {
+      opacity: 1;
+    }
+
+    /* Footer */
+    .mh-cascade__footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 56px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 500ms ease;
+    }
+
+    .mh-cascade.step-done .mh-cascade__footer {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mh-cascade__footer-text {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .mh-cascade__reset {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--forest);
+      background: transparent;
+      border: 1px solid var(--forest);
+      border-radius: 8px;
+      padding: 10px 24px;
+      cursor: pointer;
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    .mh-cascade__reset:hover {
+      background: var(--forest);
+      color: var(--cream);
+    }
+
+    /* Tablet: 3 + 2 cards */
+    @media (max-width: 960px) {
+      .mh-cascade__grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .mh-cascade__connector--h { display: none; }
+      .mh-cascade__descender { display: none; }
+    }
+
+    /* Mobile: stacked com linha central */
+    @media (max-width: 600px) {
+      .mh-cascade { padding: 64px 16px; }
+      .mh-cascade__title { font-size: 32px; }
+      .mh-cascade__subtitle { font-size: 16px; }
+      .mh-cascade__button-wrap { margin-top: 32px; }
+      .mh-cascade__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 340px;
+        padding-top: 0;
+      }
+      .mh-cascade__connector--v { display: block; }
+      .mh-cascade__footer { margin-top: 40px; }
+    }
   </style>
 </head>
 <body>
@@ -2891,6 +3237,155 @@
       this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   });
+})();
+</script>
+
+<!-- ==================== CASCATA ==================== -->
+<section class="mh-cascade" id="cascade">
+  <div class="mh-cascade__inner">
+    <p class="mh-cascade__eyebrow">Como funciona na prática</p>
+    <h2 class="mh-cascade__title">1 clique. 5 coisas acontecem sozinhas.</h2>
+    <p class="mh-cascade__subtitle">O que levava 30 minutos de redigitação agora é automático.</p>
+
+    <div class="mh-cascade__button-wrap">
+      <button type="button" class="mh-cascade__button" id="cascadeBtn">
+        <span class="mh-cascade__button-default">✓ Aprovar orçamento</span>
+        <span class="mh-cascade__button-approved">✓ Orçamento aprovado</span>
+      </button>
+    </div>
+
+    <div class="mh-cascade__trunk"></div>
+
+    <div class="mh-cascade__grid-wrap">
+      <div class="mh-cascade__connector mh-cascade__connector--h"></div>
+      <div class="mh-cascade__connector mh-cascade__connector--v"></div>
+
+      <div class="mh-cascade__grid">
+        <div class="mh-cascade__card" data-card="0">
+          <div class="mh-cascade__descender"></div>
+          <div class="mh-cascade__icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg>
+          </div>
+          <h3 class="mh-cascade__card-title">Pedido criado</h3>
+          <p class="mh-cascade__card-desc">Entra na fila de produção automaticamente</p>
+          <div class="mh-cascade__check">✓</div>
+        </div>
+
+        <div class="mh-cascade__card" data-card="1">
+          <div class="mh-cascade__descender"></div>
+          <div class="mh-cascade__icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1.5"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+          </div>
+          <h3 class="mh-cascade__card-title">Agenda marcada</h3>
+          <p class="mh-cascade__card-desc">Instalação agendada sem precisar digitar nada</p>
+          <div class="mh-cascade__check">✓</div>
+        </div>
+
+        <div class="mh-cascade__card" data-card="2">
+          <div class="mh-cascade__descender"></div>
+          <div class="mh-cascade__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+          </div>
+          <h3 class="mh-cascade__card-title">Financeiro atualizado</h3>
+          <p class="mh-cascade__card-desc">Recebível lançado no fluxo de caixa</p>
+          <div class="mh-cascade__check">✓</div>
+        </div>
+
+        <div class="mh-cascade__card" data-card="3">
+          <div class="mh-cascade__descender"></div>
+          <div class="mh-cascade__icon">
+            <svg viewBox="0 0 24 24"><line x1="9" y1="20" x2="9" y2="8"/><line x1="15" y1="20" x2="15" y2="4"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
+          </div>
+          <h3 class="mh-cascade__card-title">Baixa no estoque</h3>
+          <p class="mh-cascade__card-desc">Material reservado para o projeto</p>
+          <div class="mh-cascade__check">✓</div>
+        </div>
+
+        <div class="mh-cascade__card" data-card="4">
+          <div class="mh-cascade__descender"></div>
+          <div class="mh-cascade__icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1.5"/><polyline points="3 7 12 14 21 7"/></svg>
+          </div>
+          <h3 class="mh-cascade__card-title">Contrato gerado</h3>
+          <p class="mh-cascade__card-desc">Pronto para assinar digitalmente</p>
+          <div class="mh-cascade__check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mh-cascade__footer">
+      <p class="mh-cascade__footer-text">Zero redigitação. O MarbleHub conecta tudo automaticamente.</p>
+      <button type="button" class="mh-cascade__reset" id="cascadeReset">↺ Ver novamente</button>
+    </div>
+  </div>
+</section>
+
+<!-- Cascade Script -->
+<script>
+(function() {
+  var section = document.querySelector('.mh-cascade');
+  var btn = document.getElementById('cascadeBtn');
+  var resetBtn = document.getElementById('cascadeReset');
+  if (!section || !btn || !resetBtn) return;
+
+  var timers = [];
+  var hasPlayed = false;
+
+  var steps = [
+    { delay: 300,  cls: 'step-trunk' },
+    { delay: 700,  cls: 'step-connector' },
+    { delay: 900,  cls: 'step-card-0' },
+    { delay: 1200, cls: 'step-card-1' },
+    { delay: 1500, cls: 'step-card-2' },
+    { delay: 1800, cls: 'step-card-3' },
+    { delay: 2100, cls: 'step-card-4' },
+    { delay: 3000, cls: 'step-done' }
+  ];
+
+  function clearTimers() {
+    timers.forEach(function(id) { clearTimeout(id); });
+    timers = [];
+  }
+
+  function play() {
+    if (section.classList.contains('is-playing')) return;
+    if (section.classList.contains('is-approved') && !section.classList.contains('step-done')) return;
+    clearTimers();
+    section.classList.add('is-playing');
+    section.classList.add('is-approved');
+    steps.forEach(function(s) {
+      timers.push(setTimeout(function() {
+        section.classList.add(s.cls);
+        if (s.cls === 'step-done') {
+          section.classList.remove('is-playing');
+        }
+      }, s.delay));
+    });
+  }
+
+  function reset() {
+    clearTimers();
+    var toRemove = ['is-playing', 'is-approved', 'step-trunk', 'step-connector',
+                    'step-card-0', 'step-card-1', 'step-card-2', 'step-card-3', 'step-card-4',
+                    'step-done'];
+    toRemove.forEach(function(c) { section.classList.remove(c); });
+  }
+
+  btn.addEventListener('click', play);
+  resetBtn.addEventListener('click', reset);
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !hasPlayed) {
+          hasPlayed = true;
+          play();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(section);
+  }
 })();
 </script>
 
